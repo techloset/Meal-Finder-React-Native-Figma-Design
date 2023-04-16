@@ -5,6 +5,7 @@ import OnBoardingScreen from './src/screens/onBoardingScreen/OnBoardingScreen'
 import StepOne from './src/screens/stepOneScreen/StepOne'
 import StepTwo from './src/screens/stepTwoScreen/StepTwo'
 import Notification from './src/screens/notificationScreen/Notification'
+import Feedback from './src/screens/feedabackScreen/Feedback'
 const App = () => {
   return (
     <>
@@ -13,7 +14,8 @@ const App = () => {
 
     {/* <OnBoardingScreen/> */}
       {/* <LoginScreen /> */}
-      <Notification/>
+      {/* <Notification/> */}
+      <Feedback></Feedback>
     </>
   )
 }
