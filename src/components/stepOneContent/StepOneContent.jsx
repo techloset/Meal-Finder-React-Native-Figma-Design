@@ -8,15 +8,15 @@ import {
     pixelSizeHorizontal
 } from '../../utils/ResponsiveDesign.jsx'
 import StepOneBtns from '../stepOneBtns/StepOneBtns.jsx'
-const StepOneContent = ({heading,content,btnData}) => {
+const StepOneContent = ({data,btnData}) => {
     return (
         <View style={styles.container}>
      
       <Text style={[styles.heading, styles.color]}>
-                {heading}
+                {data.heading}
             </Text>
             <Text style={[styles.subSection, styles.color]}>
-               {content}
+               {data.content}
             </Text>
          <StepOneBtns data={btnData}/>
  
@@ -33,7 +33,9 @@ const styles = StyleSheet.create({
         fontSize: fontPixel(16),
 marginTop:pixelSizeVertical(19),
 lineHeight:fontPixel(20),
-marginBottom:pixelSizeVertical(12)
+marginBottom:pixelSizeVertical(12),
+color:'black',
+fontFamily:'SF-Pro-Display-Semibold'
     },
     subSection: {
         fontSize: fontPixel(9)

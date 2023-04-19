@@ -40,7 +40,9 @@ const styles = StyleSheet.create({
         color: 'black'
     },
     plan: {
-        fontSize: fontPixel(12)
+        fontSize: fontPixel(12),
+        lineHeight: fontPixel(16),
+        fontFamily:'SF-Pro-Display-Semibold'
     },
     cancelText: {
         fontSize: fontPixel(6),
@@ -51,6 +53,8 @@ const styles = StyleSheet.create({
     },
     priceTxt: {
         fontSize: fontPixel(16),
+        lineHeight: fontPixel(16),
+        fontFamily:'SF-Pro-Display-Semibold'
     },
     radioContainer: {
 

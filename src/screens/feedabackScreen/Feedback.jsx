@@ -1,110 +1,151 @@
-import { StyleSheet, Text, View,Image,TextInput, } from 'react-native'
-import React, { memo } from 'react'
-import FeedbackHeader from '../../components/feedbackHeader/FeedbackHeader'
+import {StyleSheet, Text, View, Image, TextInput} from 'react-native';
+import React, {memo} from 'react';
+import FeedbackHeader from '../../components/feedbackHeader/FeedbackHeader';
 import {
   widthPixel,
   heightPixel,
   fontPixel,
   pixelSizeVertical,
   pixelSizeHorizontal,
-
-} from '../../utils/ResponsiveDesign.jsx'
-import CustomButtom from '../../components/button/CustomButton'
-import FooterLine from '../../components/footerLine/FooterLine.jsx'
+} from '../../utils/ResponsiveDesign.jsx';
+import CustomButtom from '../../components/button/CustomButton';
+import FooterLine from '../../components/footerLine/FooterLine.jsx';
 
 const Feedback = () => {
   return (
     <View style={styles.container}>
+      <FeedbackHeader navigate="Notification" />
+      <View style={styles.subContainer1}>
+        <View style={styles.textContainer}>
+          <Text
+            style={[
+              styles.txt1,
+              styles.textColor,
+            ]}>{`How was your overall\nexperience?`}</Text>
+          <Text style={[styles.txt2, styles.textColor]}>
+            It will help us to serve you better.
+          </Text>
+          <Image
+            source={require('../../assets/images/emojis.png')}
+            style={styles.emojis}
+          />
+        </View>
 
-<FeedbackHeader/>
-<View style={styles.subContainer1}>
+        <Text style={styles.wrong}>What is wrong?</Text>
+        <View style={styles.btns}>
+          {[
+            'Application bugs',
+            'Customer service',
+            'Slow loading',
+            'Bad navigation',
+            'Weak functionality',
+            'Other problems',
+          ].map(item => (
+            <CustomButtom
+              text={item}
+              key={item}
+              btnContainer={styles.btnContainer}
+              btnText={styles.btnText}
+            />
+          ))}
+        </View>
+      </View>
 
-<View style={styles.textContainer}>
-
-<Text style={[styles.txt1,styles.textColor]}>{`How was your overall\nexperience?`}</Text>
-<Text  style={[styles.txt2,styles.textColor]}>It will help us to serve you better.</Text>
-<Image source={require('../../assets/images/emojis.png')} style={styles.emojis} />
-</View>
-
- 
-  <Text style={styles.wrong}>What is wrong?</Text>
-  <View style={styles.btns}>
-
-  {
-    [
-      'Application bugs',
-      'Customer service',
-      'Slow loading',
-      'Bad navigation',
-      'Weak functionality',
-      'Other problems'
-    ].map(item=><CustomButtom text={item}  key={item} btnContainer={styles.btnContainer} btnText={styles.btnText} />)
-  }
-  </View>
-  </View>
-
- <View style={styles.subContainer2}  >
-  <Text style={[styles.txt2,styles.textColor]}>Notes</Text>
-  <TextInput   style={[styles.txtInput,{verticalAlign:'top'} ]} placeholderTextColor={'rgba(201, 201, 201, 1)'} placeholder='How we can do better?'  />
- <CustomButtom text={'Submit Feedback'} btnText={styles.submitText} btnContainer={styles.submitCont}></CustomButtom>
- <FooterLine styles={styles.footer} />
- </View>
-
+      <View style={styles.subContainer2}>
+        <Text style={[styles.txt2, styles.textColor]}>Notes</Text>
+        <TextInput
+          style={[styles.txtInput, {verticalAlign: 'top'}]}
+          placeholderTextColor={'rgba(201, 201, 201, 1)'}
+          placeholder="How we can do better?"
+        />
+        <CustomButtom
+          text='Submit Feedback'
+          btnText={styles.submitText}
+          navigate={'UpgradeScreen'}
+          btnContainer={styles.submitCont}></CustomButtom>
+        <FooterLine styles={styles.footer} />
+      </View>
     </View>
-  )
-}
+  );
+};
 
-export default Feedback
+export default Feedback;
 
 const styles = StyleSheet.create({
-  subContainer1:{flex:1},
-  subContainer2:{flex:1,marginTop:pixelSizeVertical(13),},
-  footer:{marginTop:pixelSizeVertical(17),marginBottom:pixelSizeVertical(13)},
-  container:{
-    flex:1,
-    backgroundColor:'rgba(255, 255, 255, 1)',
-    paddingLeft:pixelSizeHorizontal(15),
-    paddingRight:pixelSizeHorizontal(11)
+  subContainer1: {flex: 1},
+  subContainer2: {flex: 1, marginTop: pixelSizeVertical(13)},
+  footer: {
+    marginTop: pixelSizeVertical(17),
+    marginBottom: pixelSizeVertical(13),
   },
-  txt1:{fontSize:fontPixel(14.5)},
-  txt2:{fontSize:fontPixel(10),marginBottom:pixelSizeVertical(6)},
-  textColor:{
-    color:'rgba(0, 0, 0, 1)'
+  container: {
+    flex: 1,
+    backgroundColor: 'rgba(255, 255, 255, 1)',
+    paddingLeft: pixelSizeHorizontal(15),
+    paddingRight: pixelSizeHorizontal(11),
   },
-  textContainer:{
-    marginTop:pixelSizeVertical(5),
-    gap:pixelSizeVertical(11)
+  txt1: {fontSize: fontPixel(14.5), fontFamily: 'SF-Pro-Display-Semibold'},
+  txt2: {
+    fontSize: fontPixel(10),
+    marginBottom: pixelSizeVertical(6),
+    fontFamily: 'SF-Pro-Display-Medium',
+    lineHeight: fontPixel(10),
   },
-  emojis:{
-width:pixelSizeHorizontal(132),
-height:pixelSizeVertical(30),
-resizeMode:'contain',
-marginBottom:pixelSizeVertical(4)
+  textColor: {
+    color: 'rgba(0, 0, 0, 1)',
   },
-  wrong:{
-    fontSize:fontPixel(10),
-    color:'black',
+  textContainer: {
+    marginTop: pixelSizeVertical(5),
+    gap: pixelSizeVertical(11),
   },
-  btnContainer:{
-
-    borderColor:'black',
-    borderWidth:1,
-paddingHorizontal:pixelSizeHorizontal(3),
-borderRadius:10
+  emojis: {
+    width: pixelSizeHorizontal(132),
+    height: pixelSizeVertical(30),
+    resizeMode: 'contain',
+    marginBottom: pixelSizeVertical(4),
   },
-  btnText:{
-    color:'black'
+  wrong: {
+    fontSize: fontPixel(10),
+    lineHeight: fontPixel(10),
+    color: 'black',
+    fontFamily: 'SF-Pro-Display-Medium',
   },
-  btns:{
-    flexDirection:'row',
-    flexWrap:'wrap',
-    gap:pixelSizeHorizontal(7),
-    marginTop:pixelSizeVertical(11)
+  btnContainer: {
+    borderColor: 'black',
+    borderWidth: 1,
+    paddingHorizontal: pixelSizeHorizontal(6),
+    paddingVertical:pixelSizeVertical(1),
+    borderRadius: 10,
   },
-  submitCont:{backgroundColor:'rgba(138, 71, 235, 1)',paddingVertical:pixelSizeVertical(10),alignItems:'center',justifyContent:'center',marginTop:pixelSizeVertical(32)},
-  submitText:{
-    fontSize:fontPixel(10),
-    color:'white'
+  btnText: {
+    color: 'black',
+    fontSize: fontPixel(8.4),
   },
-  txtInput:{borderColor:'black',borderWidth:1,flex:1,paddingLeft:pixelSizeHorizontal(7)},
-})
+  btns: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: pixelSizeHorizontal(7),
+    marginTop: pixelSizeVertical(11),
+  },
+  submitCont: {
+    backgroundColor: 'rgba(138, 71, 235, 1)',
+    paddingVertical: pixelSizeVertical(10),
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: pixelSizeVertical(32),
+    borderRadius:3
+  },
+  submitText: {
+    fontSize: fontPixel(10),
+    color: 'white',
+    lineHeight:fontPixel(10),
+    fontFamily:'SF-Pro-Display-Bold'
+  },
+  txtInput: {
+    borderColor: 'black',
+    borderWidth: 1,
+    flex: 1,
+    paddingLeft: pixelSizeHorizontal(7),
+    borderRadius:7
+  },
+});

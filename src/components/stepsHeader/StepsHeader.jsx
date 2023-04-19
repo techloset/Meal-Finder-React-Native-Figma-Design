@@ -19,7 +19,7 @@ const StepsHeader = () => {
                         key={index}
                         style={[styles.slideBtn,
                         styles[`btn${item}`]]}>
-                        <Text style={[styles.slideBtnText, { color:index == 1?'#FFFFFF' :'black' }]} >{item}</Text>
+                        <Text style={[styles.slideBtnText, { color:index == 1?'#FFFFFF' :'black', }]} >{item}</Text>
                         </Pressable>)
                 }
             </View>
@@ -53,12 +53,15 @@ const styles = StyleSheet.create({
         color: '#FFFFFF'
     },
     btn3: {
-        borderColor: 'black',
-        borderWidth: 1,
+        // borderColor: 'black',
+        // borderWidth: 1,
+        backgroundColor:'#EAEAEA'
     },
     btn4: {
-        borderColor: 'black',
-        borderWidth: 1,
+        backgroundColor:'#EAEAEA'
+
+        // borderColor: 'black',
+        // borderWidth: 1,
     },
     slideBtn: {
         // padding: pixelSizeHorizontal(4),
@@ -76,7 +79,9 @@ const styles = StyleSheet.create({
     },
     skipText: {
         color: '#1F73F1',
-        fontSize: fontPixel(10)
+        fontSize: fontPixel(10),
+        lineHeight: fontPixel(10),
+        fontFamily:'SF-Pro-Display-Bold'
     },
     btns: {
         flexDirection: 'row'

@@ -26,7 +26,7 @@ const App = () => {
       {/* <UpgradeScreen/> */}
       {/* <HomeScreen/> */}
       <NavigationContainer  >
-      <Stack.Navigator initialRouteName='Notification' screenOptions={{headerShown:false}} >
+      <Stack.Navigator initialRouteName='LoginScreen' screenOptions={{headerShown:false}} >
         <Stack.Screen name="StepOne" component={StepOne} />
         <Stack.Screen name="StepTwo" component={StepTwo} />
         <Stack.Screen name="OnBoardingScreen" component={OnBoardingScreen} />

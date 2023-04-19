@@ -53,9 +53,9 @@ const HomeScreen = () => {
           </View>
 
           <Image source={require('../../assets/images/cel.png')} style={{ position: 'absolute', bottom: 0, right: 10 }}></Image>
-          <TouchableOpacity onPress={() => setShowProgress(false)}>
+          <TouchableOpacity onPress={() => setShowProgress(false)} style={{ position: 'absolute', top: 8, right: 10 }}>
 
-            <Image source={require('../../assets/images/cross.png')} style={{ position: 'absolute', top: 10, right: 10 }}></Image>
+            <Image source={require('../../assets/images/cross.png')} ></Image>
           </TouchableOpacity>
 
 

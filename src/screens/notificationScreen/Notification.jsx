@@ -16,9 +16,9 @@ const List=({item})=>{
    console.log()
     return(
         <>
-        <View style={{flexDirection:'row',gap:pixelSizeHorizontal(11),borderBottomColor:'rgba(138, 71, 235, 1)',borderBottomWidth:1}}>
+        <View style={{flexDirection:'row',gap:pixelSizeHorizontal(11),paddingVertical:pixelSizeVertical(9),borderBottomColor:'rgba(138, 71, 235, 1)',borderBottomWidth:1}}>
             <Image source={require('../../assets/images/tick.png')} style={{width:pixelSizeHorizontal(13),marginLeft:pixelSizeHorizontal(5),resizeMode:'contain'}}></Image>
-<Text style={{fontSize:fontPixel(9.5),color:'rgba(96, 15, 212, 1)',paddingBottom:pixelSizeVertical(9.5)}}>{item.title}</Text>
+<Text style={{fontSize:fontPixel(9.5),color:'rgba(96, 15, 212, 1)',    fontFamily:'SF-Pro-Display-Medium'}}>{item.title}</Text>
         </View>
  
         </>
@@ -32,10 +32,10 @@ const Notification = () => {
     ]
     return (
         <View style={styles.container}>
-            <View style={{flex:4}}>
+            <View style={{flex:3}}>
 
             <View>
-            <FeedbackHeader/>
+            <FeedbackHeader navigate='StepTwo'/>
 
             </View>
 <View>
@@ -52,7 +52,7 @@ now
 </Text>
 </View>
 <View style={{paddingTop:pixelSizeVertical(4),fontSize:fontPixel(7.5)}}>
-    <Text style={{color:'rgba(0, 0, 0, 1)'}}>Notification Title</Text>
+    <Text style={{color:'rgba(0, 0, 0, 1)',    fontFamily:'SF-Pro-Display-Semibold'}}>Notification Title</Text>
     <Text style={{fontSize:fontPixel(7.5),color:'rgba(0, 0, 0, 1)'}}>
         {`Notification text would be placed right here.This is where notification text would be placed.`}
     </Text>
@@ -63,12 +63,12 @@ now
     data={data}
     renderItem={List}
     keyExtractor={item => item.id}
-    style={{marginTop:pixelSizeVertical(50)}}
+    style={{marginTop:pixelSizeVertical(25)}}
   />
             </View>
 <View style={{flex:1,justifyContent:'flex-end'}}>
 
-  <CustomButtom text={'Enable'} btnContainer={styles.btnContainer}btnText={styles.btnText} />
+  <CustomButtom text='Enable' navigate='Feedback' btnContainer={styles.btnContainer}btnText={styles.btnText} />
   <FooterLine styles={styles.footer}></FooterLine>
 </View>
         </View>
@@ -89,7 +89,8 @@ const styles = StyleSheet.create({
     heading:{
         color:'#600FD4',
         fontSize:fontPixel(14),
-        marginTop:pixelSizeVertical(10)
+        marginTop:pixelSizeVertical(10),
+        fontFamily:'SF-Pro-Display-Semibold'
     },
     notificationContainer:{
 borderColor:'black',
@@ -99,7 +100,8 @@ paddingLeft:pixelSizeHorizontal(5),
 paddingTop:pixelSizeVertical(5),
 paddingBottom:pixelSizeVertical(8),
 borderRadius:pixelSizeHorizontal(7),
-marginTop:pixelSizeVertical(28)
+marginTop:pixelSizeVertical(15),
+backgroundColor:'white'
     },
     btnContainer:{
         backgroundColor:'rgba(138, 71, 235, 1)',
@@ -112,6 +114,7 @@ marginTop:pixelSizeVertical(28)
     btnText:{
         fontSize:fontPixel(10),
         color:'white',
-        paddingVertical:pixelSizeVertical(10)
+        paddingVertical:pixelSizeVertical(8),
+        fontFamily:'SF-Pro-Display-Bold'
     }
 })

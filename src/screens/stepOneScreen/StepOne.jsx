@@ -32,14 +32,14 @@ const StepOne = () => {
             <View style={styles.contentContainer}>
 
                 <StepsHeader  ></StepsHeader>
-                <StepOneContent {...{data,btnData}}></StepOneContent>
+                <StepOneContent btnData={btnData} data={data}></StepOneContent>
             </View>
             <View style={styles.btnContainer}>
                 {
                     [
                         'Previous',
                         'Next'
-                    ].map(item => <CustomButtom text={item} key={item} btnContainer={[styles[`${item}`], styles.btnText]} btnText={[styles[`text${item}`], styles.btnText]} />)
+                    ].map(item => <CustomButtom text={item} key={item} btnContainer={[styles[`${item}`], ]} navigate={item=="Previous"?'OnBoardingScreen':'StepTwo'} btnText={[styles[`text${item}`], styles.btnText]} />)
                 }
             </View>
             <FooterLine styles={styles.footer}></FooterLine>
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     Previous: { alignItems: "center", justifyContent: "center", width: pixelSizeHorizontal(75), backgroundColor: '#F2F2F2', borderRadius: 5 },
     Next: { alignItems: "center", justifyContent: "center", backgroundColor: '#8A47EB', borderRadius: 5, width: pixelSizeHorizontal(75) },
     textPrevious: { color: 'black' },
-    btnText: { fontSize: fontPixel(10), paddingVertical: pixelSizeVertical(4) },
+    btnText: { fontSize: fontPixel(10), paddingVertical: pixelSizeVertical(4),fontFamily:'SF-Pro-Display-Bold'},
     textNext: { color: "white" },
     footer:{marginBottom:height*0.03},
 

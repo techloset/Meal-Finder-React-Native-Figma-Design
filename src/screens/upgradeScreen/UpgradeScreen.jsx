@@ -7,7 +7,7 @@ import FooterLine from '../../components/footerLine/FooterLine'
 import { useState } from 'react'
 
 const HomeScreen = () => {
-    const [radio,setRadio]=useState(null)
+    const [radio,setRadio]=useState(1)
     const data = [
         {
             plan: '1 Month Plan',
@@ -15,7 +15,7 @@ const HomeScreen = () => {
         },
         {
             plan: '1 Year Plan',
-            price: "    8",
+            price: " 8",
         },
     ]
     return (
@@ -44,7 +44,7 @@ const HomeScreen = () => {
             
             </View>
             <View style={styles.footerContainer}>
-            <CustomButton text={'Upgrade'} btnContainer={styles.btnContainer} btnText={styles.btnText} />
+            <CustomButton navigate={'HomeScreen'} text={'Upgrade'} btnContainer={styles.btnContainer} btnText={styles.btnText} />
             <Text style={[styles.color,styles.termsText]}>{`By continuing you agree to the`}</Text>
             <Text style={[styles.color,styles.CondiText]}>Terms & Conditions</Text>
             <FooterLine styles={styles.footer} />
@@ -85,21 +85,28 @@ const styles = StyleSheet.create({
     txt1: {
 
         fontSize: fontPixel(14),
+        fontFamily:'SF-Pro-Display-Semibold'
   
     },
     txt2: {
 
         fontSize: fontPixel(9.5),
+        lineHeight: fontPixel(9.5),
+        fontFamily:'SF-Pro-Display-Medium'
    
     },
     textContainer: { alignItems: "center", marginTop:pixelSizeVertical(8),gap:pixelSizeVertical(6)  }
     ,btnText:{
-        color:'white'
+        color:'white',
+        fontSize:fontPixel(10),
+        fontSize:fontPixel(10),
+        fontFamily:'SF-Pro-Display-Bold'
+        
     },
     btnContainer:{
         backgroundColor:'rgba(138, 71, 235, 1)',
        
-        paddingVertical:pixelSizeVertical(10),
+        paddingVertical:pixelSizeVertical(9),
         justifyContent:'center',
         alignItems:'center',
         marginHorizontal:pixelSizeHorizontal(12),
@@ -115,9 +122,14 @@ const styles = StyleSheet.create({
         marginBottom:pixelSizeVertical(10),
         marginTop:pixelSizeHorizontal(17),
     },termsText:{
-        marginTop:pixelSizeVertical(8.5)
+        marginTop:pixelSizeVertical(8.5),
+        fontSize:fontPixel(9),
+        lineHeight:fontPixel(9),
+        fontFamily:'SF-Pro-Display-Medium'
     },
     CondiText:{
-       
+        fontSize:fontPixel(9),
+        lineHeight:fontPixel(9), 
+        fontFamily:'SF-Pro-Display-Bold'
     }
 })

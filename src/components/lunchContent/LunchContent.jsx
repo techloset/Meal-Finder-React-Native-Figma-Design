@@ -24,7 +24,7 @@ const LunchContent = () => {
         }
      </Text>
         </View>
-     <View style={{flexDirection:'row',justifyContent:'space-between',marginRight:width*0.12,marginLeft:width*0.1}}>
+     <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',marginRight:width*0.12,marginLeft:width*0.1}}>
      <Pagination
       dotsLength={3}
       activeDotIndex={0}
@@ -32,8 +32,7 @@ const LunchContent = () => {
         width: widthPixel(19),
         height: heightPixel(4),
         borderRadius: 5000,
-        // gap:5,
-        
+    
         marginHorizontal: -3,
         backgroundColor: '#8A47EB',
       }}
@@ -45,7 +44,7 @@ const LunchContent = () => {
       inactiveDotOpacity={0.4}
       inactiveDotScale={1}
       />
-     <CustomButtom btnContainer={styles.btnContainer} btnText={styles.btnText} text={'Next'}/>
+     <CustomButtom btnContainer={styles.btnContainer} btnText={styles.btnText} text={'Next'} navigate={'StepOne'}/>
      </View>
     </View>
   )
@@ -55,9 +54,9 @@ export default LunchContent
 
 const styles = StyleSheet.create({
   footer:{marginTop:height*0.05,marginBottom:height*0.03},
-    btnContainer:{borderRadius:5,backgroundColor:'#8A47EB',height:heightPixel(30),justifyContent:"center",alignItems:"center"},
-    btnText:{color:'#FFFFFF',borderRadius:2,paddingHorizontal:pixelSizeHorizontal(30)},
-    heading:{fontSize:fontPixel(14)},
+    btnContainer:{borderRadius:5,backgroundColor:'#8A47EB',height:heightPixel(26),width:widthPixel(75),justifyContent:"center",alignItems:"center"},
+    btnText:{color:'#FFFFFF',borderRadius:2,fontFamily:'SF-Pro-Display-Bold'},
+    heading:{fontSize:fontPixel(14),fontFamily:'SF-Pro-Display-Semibold'},
     text:{fontSize:fontPixel(10)},
     parent:{flex:1,justifyContent:'space-between',marginTop:pixelSizeVertical(30)},
     color:{
