@@ -45,7 +45,7 @@ const Feedback = () => {
 
  <View style={styles.subContainer2}  >
   <Text style={[styles.txt2,styles.textColor]}>Notes</Text>
-  <TextInput   style={[styles.txtInput, {verticalAlign: 'top'}]} placeholder='How we can do better?'  />
+  <TextInput   style={[styles.txtInput,{verticalAlign:'top'} ]} placeholderTextColor={'rgba(201, 201, 201, 1)'} placeholder='How we can do better?'  />
  <CustomButtom text={'Submit Feedback'} btnText={styles.submitText} btnContainer={styles.submitCont}></CustomButtom>
  <FooterLine styles={styles.footer} />
  </View>
@@ -106,5 +106,5 @@ borderRadius:10
     fontSize:fontPixel(10),
     color:'white'
   },
-  txtInput:{borderColor:'black',borderWidth:1,flex:1},
+  txtInput:{borderColor:'black',borderWidth:1,flex:1,paddingLeft:pixelSizeHorizontal(7)},
 })
