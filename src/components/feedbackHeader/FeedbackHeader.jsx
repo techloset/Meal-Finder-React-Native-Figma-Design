@@ -1,6 +1,5 @@
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
-import CustomButtom from '../../components/button/CustomButton';
 import {
   widthPixel,
   heightPixel,
@@ -10,7 +9,8 @@ import {
 } from '../../utils/ResponsiveDesign.jsx';
 import {useNavigation} from '@react-navigation/native';
 
-const FeedbackHeader = ({navigate}) => {
+const FeedbackHeader = ({navigate,navigateThroughSkip}) => {
+  console.log(navigateThroughSkip)
   const navigation = useNavigation();
   return (
     <View style={styles.header}>
@@ -21,7 +21,7 @@ const FeedbackHeader = ({navigate}) => {
           source={require('../../assets/images/arrow.png')}
           style={styles.img}></Image>
       </TouchableOpacity>
-      <CustomButtom text='Skip' btnText={styles.text}></CustomButtom>
+      <Text  style={styles.text}>Skip</Text>
     </View>
   );
 };

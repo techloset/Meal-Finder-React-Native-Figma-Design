@@ -10,7 +10,6 @@ import {
 import StepOneContent from '../../components/stepOneContent/StepOneContent.jsx'
 import StepsHeader from '../../components/stepsHeader/StepsHeader.jsx'
 import CustomButtom from '../../components/button/CustomButton'
-import FooterLine from '../../components/footerLine/FooterLine.jsx'
 const {width,height}=Dimensions.get('window')
 const StepOne = () => {
     const data={
@@ -32,17 +31,17 @@ const StepOne = () => {
             <View style={styles.contentContainer}>
 
                 <StepsHeader  ></StepsHeader>
-                <StepOneContent btnData={btnData} data={data}></StepOneContent>
+                <StepOneContent activeOne={btnData.length-1} btnData={btnData} data={data}></StepOneContent>
             </View>
             <View style={styles.btnContainer}>
                 {
                     [
                         'Previous',
                         'Next'
-                    ].map(item => <CustomButtom text={item} key={item} btnContainer={[styles[`${item}`], ]} navigate={item=="Previous"?'OnBoardingScreen':'StepTwo'} btnText={[styles[`text${item}`], styles.btnText]} />)
+                    ].map(item => <CustomButtom  text={item} key={item} btnContainer={[styles[`${item}`], ]} navigate={item=="Previous"?'OnBoardingScreen':'StepTwo'} btnText={[styles[`text${item}`], styles.btnText]} />)
                 }
             </View>
-            <FooterLine styles={styles.footer}></FooterLine>
+            
         </View>
     )
 }

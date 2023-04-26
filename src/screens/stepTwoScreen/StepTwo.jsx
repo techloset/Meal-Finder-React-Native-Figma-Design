@@ -10,7 +10,6 @@ import {
 import StepOneContent from '../../components/stepOneContent/StepOneContent.jsx'
 import StepsHeader from '../../components/stepsHeader/StepsHeader.jsx'
 import CustomButtom from '../../components/button/CustomButton'
-import FooterLine from '../../components/footerLine/FooterLine.jsx'
 import { useNavigation } from '@react-navigation/native'
 const {width,height}=Dimensions.get('window')
 const StepOne = () => {
@@ -48,7 +47,7 @@ const StepOne = () => {
         <Text style={styles.skipText} >Skip</Text>
 </View>
             <View style={styles.contentContainer}>
-            <StepOneContent data={data} btnData={btnData}></StepOneContent>
+            <StepOneContent activeOne={2} data={data} btnData={btnData}></StepOneContent>
 
             </View>
             <View style={styles.btnContainer}>
@@ -63,7 +62,6 @@ const StepOne = () => {
  </Pressable>)
                 }
             </View>
-            <FooterLine styles={styles.footer}></FooterLine>
         </View>
     )
 }

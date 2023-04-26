@@ -1,5 +1,12 @@
-import {StyleSheet, Text, View, Image, TextInput} from 'react-native';
-import React, {memo} from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TextInput,
+  Pressable,
+} from 'react-native';
+import React, {useState} from 'react';
 import FeedbackHeader from '../../components/feedbackHeader/FeedbackHeader';
 import {
   widthPixel,
@@ -9,9 +16,17 @@ import {
   pixelSizeHorizontal,
 } from '../../utils/ResponsiveDesign.jsx';
 import CustomButtom from '../../components/button/CustomButton';
-import FooterLine from '../../components/footerLine/FooterLine.jsx';
 
 const Feedback = () => {
+  const data = [
+    'Application bugs',
+    'Customer service',
+    'Slow loading',
+    'Bad navigation',
+    'Weak functionality',
+    'Other problems',
+  ];
+  const [state, setState] = useState(data.length - 1);
   return (
     <View style={styles.container}>
       <FeedbackHeader navigate="Notification" />
@@ -33,37 +48,44 @@ const Feedback = () => {
 
         <Text style={styles.wrong}>What is wrong?</Text>
         <View style={styles.btns}>
-          {[
-            'Application bugs',
-            'Customer service',
-            'Slow loading',
-            'Bad navigation',
-            'Weak functionality',
-            'Other problems',
-          ].map(item => (
-            <CustomButtom
-              text={item}
+          {data.map((item, index) => (
+            <Pressable
               key={item}
-              btnContainer={styles.btnContainer}
-              btnText={styles.btnText}
-            />
+              style={[
+                index == state
+                  ? styles.activeContainer
+                  : styles.nonActiveContainer,
+                styles.btnContainer,
+                styles[item.split(' ')[0]],
+              ]}
+              onPress={() => setState(index)}>
+              <Text
+                style={[
+                  index == state ? styles.activeTxt : styles.nonActiveTxt,
+                  ,
+                  styles.text,
+                ]}>
+                {item}
+              </Text>
+            </Pressable>
           ))}
         </View>
       </View>
 
       <View style={styles.subContainer2}>
-        <Text style={[styles.txt2, styles.textColor]}>Notes</Text>
-        <TextInput
-          style={[styles.txtInput, {verticalAlign: 'top'}]}
-          placeholderTextColor={'rgba(201, 201, 201, 1)'}
-          placeholder="How we can do better?"
-        />
+        <View style={{flex: 1}}>
+          <Text style={[styles.txt2, styles.textColor]}>Notes</Text>
+          <TextInput
+            style={[styles.txtInput, {verticalAlign: 'top'}]}
+            placeholderTextColor={'rgba(201, 201, 201, 1)'}
+            placeholder="How we can do better?"
+          />
+        </View>
         <CustomButtom
-          text='Submit Feedback'
+          text="Submit Feedback"
           btnText={styles.submitText}
           navigate={'UpgradeScreen'}
           btnContainer={styles.submitCont}></CustomButtom>
-        <FooterLine styles={styles.footer} />
       </View>
     </View>
   );
@@ -72,12 +94,35 @@ const Feedback = () => {
 export default Feedback;
 
 const styles = StyleSheet.create({
-  subContainer1: {flex: 1},
-  subContainer2: {flex: 1, marginTop: pixelSizeVertical(13)},
-  footer: {
-    marginTop: pixelSizeVertical(17),
-    marginBottom: pixelSizeVertical(13),
+  Application: {
+    width: widthPixel(82),
   },
+  Customer: {
+    width: widthPixel(86.6),
+  },
+  Slow: {
+    width: widthPixel(72),
+  },
+  Bad: {
+    width: widthPixel(76),
+  },
+  Weak: {
+    width: widthPixel(91),
+  },
+  Other: {
+    width: widthPixel(76),
+  },
+  nonActiveContainer: {
+    borderColor: 'black',
+    borderWidth: 1,
+  },
+  activeContainer: {
+    backgroundColor: '#8A47EB',
+    borderWidth: 0,
+  },
+  subContainer1: {flex: 1.14},
+  subContainer2: {flex: 1},
+ 
   container: {
     flex: 1,
     backgroundColor: 'rgba(255, 255, 255, 1)',
@@ -87,7 +132,7 @@ const styles = StyleSheet.create({
   txt1: {fontSize: fontPixel(14.5), fontFamily: 'SF-Pro-Display-Semibold'},
   txt2: {
     fontSize: fontPixel(10),
-    marginBottom: pixelSizeVertical(6),
+    marginBottom: pixelSizeVertical(7),
     fontFamily: 'SF-Pro-Display-Medium',
     lineHeight: fontPixel(10),
   },
@@ -111,11 +156,10 @@ const styles = StyleSheet.create({
     fontFamily: 'SF-Pro-Display-Medium',
   },
   btnContainer: {
-    borderColor: 'black',
-    borderWidth: 1,
-    paddingHorizontal: pixelSizeHorizontal(6),
-    paddingVertical:pixelSizeVertical(1),
-    borderRadius: 10,
+
+    // paddingHorizontal: pixelSizeHorizontal(6),
+    paddingVertical: pixelSizeVertical(1),
+    borderRadius: 120,
   },
   btnText: {
     color: 'black',
@@ -131,21 +175,35 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(138, 71, 235, 1)',
     paddingVertical: pixelSizeVertical(10),
     alignItems: 'center',
+    marginBottom: pixelSizeVertical(17),
     justifyContent: 'center',
-    marginTop: pixelSizeVertical(32),
-    borderRadius:3
+
+    borderRadius: 3,
   },
   submitText: {
     fontSize: fontPixel(10),
     color: 'white',
-    lineHeight:fontPixel(10),
-    fontFamily:'SF-Pro-Display-Bold'
+    lineHeight: fontPixel(10),
+    fontFamily: 'SF-Pro-Display-Bold',
   },
   txtInput: {
     borderColor: 'black',
     borderWidth: 1,
     flex: 1,
+    marginBottom: pixelSizeVertical(32),
     paddingLeft: pixelSizeHorizontal(7),
-    borderRadius:7
+    borderRadius: 7,
+  },
+  text: {
+    fontSize: fontPixel(9),
+
+    textAlign: 'center',
+    width: '100%',
+  },
+  nonActiveTxt: {
+    color: 'black',
+  },
+  activeTxt: {
+    color: 'white',
   },
 });

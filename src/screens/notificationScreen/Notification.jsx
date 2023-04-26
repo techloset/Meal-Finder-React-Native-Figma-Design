@@ -9,7 +9,6 @@ import {
 
 } from '../../utils/ResponsiveDesign.jsx'
 import CustomButtom from '../../components/button/CustomButton'
-import FooterLine from '../../components/footerLine/FooterLine.jsx'
 import FeedbackHeader from '../../components/feedbackHeader/FeedbackHeader.jsx'
 const {width,height}=Dimensions.get('window')
 const List=({item})=>{
@@ -35,7 +34,7 @@ const Notification = () => {
             <View style={{flex:3}}>
 
             <View>
-            <FeedbackHeader navigate='StepTwo'/>
+            <FeedbackHeader navigateThroughSkip={'feedback'} navigate='StepTwo'/>
 
             </View>
 <View>
@@ -66,10 +65,9 @@ now
     style={{marginTop:pixelSizeVertical(25)}}
   />
             </View>
-<View style={{flex:1,justifyContent:'flex-end'}}>
+<View style={{flex:0.5,justifyContent:'flex-end'}}>
 
   <CustomButtom text='Enable' navigate='Feedback' btnContainer={styles.btnContainer}btnText={styles.btnText} />
-  <FooterLine styles={styles.footer}></FooterLine>
 </View>
         </View>
     )

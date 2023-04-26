@@ -9,8 +9,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import FooterLine from '../../components/footerLine/FooterLine';
-import { heightPixel, widthPixel } from '../../utils/ResponsiveDesign';
+import { heightPixel, pixelSizeVertical, widthPixel } from '../../utils/ResponsiveDesign';
 import { useNavigation } from '@react-navigation/native';
 const {width, height} = Dimensions.get('window');
 const Buttons = ({style, path, children, textStyle}) => {
@@ -62,14 +61,13 @@ const LoginScreen = () => {
             Continue with {item.name}
           </Buttons>
         ))}
-<View style={styles.direction}>
+<View style={[styles.direction,styles.login]}>
 
         <Text style={styles.acc}>Already have account? </Text>
         <Text style={styles.logIn}>Log In</Text>
 </View>
       </View>
     
-      <FooterLine styles={styles.footer}></FooterLine>
     </View>
   );
 };
@@ -126,5 +124,7 @@ const styles = StyleSheet.create({
   email: {
     color: '#FFFFFF',
   },
-  fang: {},
+  login: {
+    marginBottom:pixelSizeVertical(28)
+  },
 });

@@ -8,7 +8,6 @@ import {
   fontPixel,
 } from '../../utils/ResponsiveDesign';
 import CustomButtom from '../../components/button/CustomButton';
-import FooterLine from '../../components/footerLine/FooterLine';
 const Item = ({item}) => {
   console.log(item);
   const {ingredient, amount} = item;
@@ -20,7 +19,6 @@ const Item = ({item}) => {
   );
 };
 const RecipeScreen = ({route}) => {
-  const {path} = route.params;
   const data = [
     {
       amount: '100 k',
@@ -75,10 +73,10 @@ const RecipeScreen = ({route}) => {
   return (
     <View style={styles.container}>
       <Image
-        source={path}
+        source={require('../../assets/images/r.png')}
         style={{
           width: '100%',
-          height: heightPixel(150),
+          height: heightPixel(215),
           resizeMode: 'cover',
         }}></Image>
       <View style={styles.contentContainer}>
@@ -116,7 +114,7 @@ const RecipeScreen = ({route}) => {
             styles.contentSpacing,
           ]}>
           <View style={[styles.direction, styles.servesContainer]}>
-            <Text style={[styles.color]}>Ingredients</Text>
+            <Text style={[styles.color,styles.ingredientTxt]}>Ingredients</Text>
             <Text style={[styles.color, styles.servesTxt]}>2 serves</Text>
           </View>
           <View style={[styles.direction, styles.plusMinusContainer]}>
@@ -143,11 +141,11 @@ const RecipeScreen = ({route}) => {
         <CustomButtom
           text={'Start cooking'}
           btnText={styles.submitText}
+          navigate='PreparationScreen'
           btnContainer={[
             styles.submitCont,
             styles.contentSpacing,
           ]}></CustomButtom>
-        <FooterLine styles={styles.footer} />
       </View>
     </View>
   );
@@ -156,6 +154,7 @@ const RecipeScreen = ({route}) => {
 export default RecipeScreen;
 
 const styles = StyleSheet.create({
+  ingredientTxt:{fontSize:fontPixel(9),lineHeight:fontPixel(9),    fontFamily:'SF-Pro-Display-Medium'},
   container: {
     flex: 1,
   },
@@ -180,11 +179,15 @@ const styles = StyleSheet.create({
   },
   ramenTxt: {
     fontSize: fontPixel(14),
+    lineHeight: fontPixel(14),
     textAlign: 'center',
+    fontFamily:'SF-Pro-Display-Semibold'
   },
   timeTxt: {
     fontSize: fontPixel(7),
+    lineHeight: fontPixel(7),
     color: 'rgba(103, 103, 103, 1)',
+    fontFamily:'SF-Pro-Display-Semibold'
   },
   direction: {
     flexDirection: 'row',
@@ -198,20 +201,26 @@ const styles = StyleSheet.create({
   },
   submitText: {
     fontSize: fontPixel(10),
+    lineHeight: fontPixel(10),
     color: 'white',
+    fontFamily:'SF-Pro-Display-Bold'
   },
   submitCont: {
     backgroundColor: 'rgba(138, 71, 235, 1)',
     paddingVertical: pixelSizeVertical(10),
     alignItems: 'center',
     justifyContent: 'center',
+    borderRadius:5,
     marginTop: pixelSizeVertical(11),
+    marginBottom:pixelSizeVertical(20)
   },
   amountTxt: {
     fontSize: fontPixel(7),
   },
   categoryTxt: {
     fontSize: fontPixel(9),
+   
+    fontFamily:'SF-Pro-Display-Medium'
   },
   ingredient: {
     fontSize: fontPixel(9),
@@ -253,6 +262,6 @@ const styles = StyleSheet.create({
   shadow: {
     height: heightPixel(24),
     position: 'absolute',
-    bottom: 10,
+    bottom: 0,
   },
 });

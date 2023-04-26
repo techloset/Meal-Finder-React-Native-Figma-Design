@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import {
     widthPixel,
     heightPixel,
@@ -8,7 +8,8 @@ import {
     pixelSizeHorizontal
 } from '../../utils/ResponsiveDesign.jsx'
 import StepOneBtns from '../stepOneBtns/StepOneBtns.jsx'
-const StepOneContent = ({data,btnData}) => {
+const StepOneContent = ({data,btnData,activeOne}) => {
+    const [state,setState]=useState(activeOne)
     return (
         <View style={styles.container}>
      
@@ -18,7 +19,7 @@ const StepOneContent = ({data,btnData}) => {
             <Text style={[styles.subSection, styles.color]}>
                {data.content}
             </Text>
-         <StepOneBtns data={btnData}/>
+         <StepOneBtns data={btnData} state={state} setState={setState}/>
  
       
         </View>

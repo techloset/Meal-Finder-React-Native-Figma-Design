@@ -3,7 +3,6 @@ import React from 'react'
 import LunchCrousel from '../../components/lunchCrousel/LunchCrousel'
 import LunchContent from '../../components/lunchContent/LunchContent'
 import Carousel, {Pagination} from 'react-native-snap-carousel';
-import FooterLine from '../../components/footerLine/FooterLine';
 import {
   widthPixel,
   heightPixel,
@@ -21,7 +20,6 @@ const OnBoardingScreen = () => {
 
   <LunchContent></LunchContent>
    
-  <FooterLine styles={styles.footer}></FooterLine>
   
   </View>
   )
