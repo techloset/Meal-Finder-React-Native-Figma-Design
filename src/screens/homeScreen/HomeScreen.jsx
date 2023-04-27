@@ -7,6 +7,7 @@ import {
   ScrollView,
   TouchableOpacity,
   Pressable,
+  Dimensions
 } from 'react-native';
 import React from 'react';
 import {
@@ -18,8 +19,7 @@ import {
 import {heightPixel} from '../../utils/ResponsiveDesign';
 import {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import LinearGradient from 'react-native-linear-gradient';
-
+const windowHeight = Dimensions.get('window').height;
 import Chart from '../../components/chart/Chart';
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -48,12 +48,7 @@ const HomeScreen = () => {
   ];
   return (
     <ScrollView style={styles.container}>
-       <LinearGradient
-          colors={['#8A47EB', 'rgba(255, 255, 255, 0)']}
-          start={{x: 0, y: 1}}
-          end={{x: 0, y: 0.6}}
-          style={{zIndex: 100}}>
-
+       
       <View style={styles.imgContainer}>
         <Image
           source={require('../../assets/images/top.png')}
@@ -104,7 +99,10 @@ const HomeScreen = () => {
             <Text style={[styles.color, styles.txt1]}>Today’s Progress</Text>
             <Text style={[styles.txt2]}>View more</Text>
           </View>
-          <Chart />
+          <View style={{flex:1}}>
+
+          <Chart  />
+          </View>
           <View>
             <View
               style={[
@@ -149,7 +147,6 @@ const HomeScreen = () => {
         ))}
       </View>
      
-      </LinearGradient>
      
     </ScrollView>
   );

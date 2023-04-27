@@ -27,19 +27,19 @@ const HomeScreen = () => {
   ];
   return (
     <View style={styles.container}>
-   
       <View style={styles.imgContainer}>
-        <Pressable onPress={()=>navigation.navigate('Feedback')} style={styles.imgArrowContainer}>
-
-      <Image
-          source={require('../../assets/images/arrow.png')}
-          style={styles.imgArrow} ></Image>
-          </Pressable>
+        <Pressable
+          onPress={() => navigation.navigate('Feedback')}
+          style={styles.imgArrowContainer}>
+          <Image
+            source={require('../../assets/images/arrow.png')}
+            style={styles.imgArrow}></Image>
+        </Pressable>
         <Image
           source={require('../../assets/images/upgrade.png')}
           style={styles.img}></Image>
       </View>
-      
+
       <View style={styles.plansContainer}>
         <View style={styles.textContainer}>
           <Text style={[styles.color, styles.txt1]}>
@@ -76,7 +76,6 @@ const HomeScreen = () => {
             styles.termsText,
           ]}>{`By continuing you agree to the`}</Text>
         <Text style={[styles.color, styles.CondiText]}>Terms & Conditions</Text>
-       
       </View>
     </View>
   );
@@ -94,13 +93,17 @@ const styles = StyleSheet.create({
     position: 'relative',
     zIndex: -10,
   },
-  imgArrowContainer:{
-    position:'absolute',
-    zIndex:100,
-    marginTop:pixelSizeVertical(13),
-    marginLeft:pixelSizeHorizontal(11)
+  imgArrowContainer: {
+    position: 'absolute',
+    zIndex: 100,
+    marginTop: pixelSizeVertical(13),
+    marginLeft: pixelSizeHorizontal(11),
   },
-  imgArrow:{width:widthPixel(21),height:widthPixel(21),resizeMode:'contain'},
+  imgArrow: {
+    width: widthPixel(21),
+    height: widthPixel(21),
+    resizeMode: 'contain',
+  },
   img: {height: '100%', resizeMode: 'cover', width: '100%'},
   plansContainer: {
     flex: 1,
@@ -165,6 +168,6 @@ const styles = StyleSheet.create({
     fontSize: fontPixel(9),
     lineHeight: fontPixel(9),
     fontFamily: 'SF-Pro-Display-Bold',
-    marginBottom:pixelSizeVertical(20)
+    marginBottom: pixelSizeVertical(20),
   },
 });

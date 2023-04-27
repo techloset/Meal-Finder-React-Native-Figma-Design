@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, Image, FlatList} from 'react-native';
+import {StyleSheet, Text, View, Image, FlatList,Pressable} from 'react-native';
 import React from 'react';
 import {
   heightPixel,
@@ -18,7 +18,9 @@ const Item = ({item}) => {
     </View>
   );
 };
+import {useNavigation} from '@react-navigation/native';
 const RecipeScreen = ({route}) => {
+  const navigation = useNavigation();
   const data = [
     {
       amount: '100 k',
@@ -72,6 +74,22 @@ const RecipeScreen = ({route}) => {
   ];
   return (
     <View style={styles.container}>
+      <View 
+          style={styles.imgArrowContainer}
+      
+      >
+
+       <Pressable
+          onPress={() => navigation.navigate('Tabs')}
+          >
+          <Image
+            source={require('../../assets/images/arrow.png')}
+            style={styles.imgArrow}></Image>
+        </Pressable>
+          <Image
+            source={require('../../assets/images/dots.png')}
+            style={styles.dotsImg}></Image>
+          </View>
       <Image
         source={require('../../assets/images/r.png')}
         style={{
@@ -154,6 +172,20 @@ const RecipeScreen = ({route}) => {
 export default RecipeScreen;
 
 const styles = StyleSheet.create({
+  imgArrowContainer: {
+    position: 'absolute',
+    zIndex: 100,
+    marginTop: pixelSizeVertical(13),
+    paddingLeft: pixelSizeHorizontal(11),
+    flexDirection:"row",
+justifyContent:'space-between',
+alignItems:'center',
+paddingRight:pixelSizeHorizontal(10),
+width:'100%'
+  },
+  dotsImg:{
+    width:widthPixel(13),height:widthPixel(13)
+  },
   ingredientTxt:{fontSize:fontPixel(9),lineHeight:fontPixel(9),    fontFamily:'SF-Pro-Display-Medium'},
   container: {
     flex: 1,

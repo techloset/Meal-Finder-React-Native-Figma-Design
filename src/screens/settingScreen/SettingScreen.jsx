@@ -10,12 +10,15 @@ import {
 import Chart from '../../components/chart/Chart.jsx';
 import BarChart from '../../components/barChart/BarChart.jsx'
 import LineChart from '../../components/lineChart/LineChart.jsx';
+import { useNavigation } from '@react-navigation/native';
+const {height}=Dimensions.get('window')
 const SettingScreen = () => {
+  const navigation=useNavigation()
   
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.navigate(navigate)}>
+        <TouchableOpacity onPress={() => navigation.navigate('Tabs')}>
           <Image
             source={require('../../assets/images/arrow.png')}
             style={styles.img}></Image>
@@ -31,9 +34,9 @@ const SettingScreen = () => {
         </View>
         <View style={styles.headerBtn}>
           <TouchableOpacity
-            onPress={() => navigation.navigate(navigate)}
+           
             style={styles.headerBtnChild1}>
-            <Text style={[styles.headerBtnChildTxt1, styles.txt]}>Journal</Text>
+            <Text style={[ styles.txt]}>Journal</Text>
           </TouchableOpacity>
           <View style={styles.headerBtnChild2}>
             <Text style={[styles.headerBtnChildTxt2, styles.txt]}>
@@ -74,7 +77,7 @@ const SettingScreen = () => {
                 21% Fat Mass
                 </Text>
             </View>
-            <View style={{flex:0.9,  transform: [{rotate: '20deg'}],}}>
+            <View style={{width:'60%', transform: [{rotate: '20deg'},],}}>
               <LineChart/>
             </View>
         </View>
@@ -109,7 +112,7 @@ const SettingScreen = () => {
     
          
            
-        <View style={{flex:1,height:heightPixel(50),marginTop:-pixelSizeVertical(5),marginBottom:pixelSizeVertical(20)}}>
+        <View style={{flex:1,height:heightPixel(50),marginTop:-pixelSizeVertical(5),marginBottom: height>=550?pixelSizeVertical(20):pixelSizeVertical(10)}}>
 
             <BarChart></BarChart>
 
@@ -127,6 +130,7 @@ const SettingScreen = () => {
 export default SettingScreen;
 
 const styles = StyleSheet.create({
+  img1:{width:widthPixel(21),height:widthPixel(21)},
     percentageMass:{color:'#3F3B3B',fontSize:fontPixel(6.5)},
   weightText: {
     fontSize: fontPixel(10),
@@ -143,7 +147,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginTop: pixelSizeVertical(11),
   },
-  arrowIcon: {width: widthPixel(7), height: heightPixel(7), marginTop: 2},
+  arrowIcon: {width: widthPixel(7), height: widthPixel(7),resizeMode:'center'},
   direction: {flexDirection: 'row'},
   container: {
     flex: 1,
@@ -185,7 +189,7 @@ const styles = StyleSheet.create({
   headerBtn: {
     backgroundColor: '#EEEEEF',
     flexDirection: 'row',
-    marginTop: pixelSizeVertical(14),
+    marginTop:  height>=550?pixelSizeVertical(14):pixelSizeVertical(8),
     padding: 1,
     borderRadius: 8,
   },
@@ -222,8 +226,8 @@ const styles = StyleSheet.create({
   progressContainer: {
     borderWidth: 1,
     paddingHorizontal: pixelSizeHorizontal(10),
-    paddingTop: pixelSizeVertical(10),
-    paddingBottom: pixelSizeVertical(20),
+    paddingTop:  height>=550?pixelSizeVertical(10):pixelSizeVertical(7),
+    paddingBottom: height>=550?pixelSizeVertical(20):pixelSizeVertical(10),
     marginTop: pixelSizeVertical(12),
     borderRadius: 11,
   },
@@ -251,6 +255,8 @@ const styles = StyleSheet.create({
   caloryContainer:{
     marginTop:pixelSizeVertical(9.5),
     borderRadius:5,
+    flex:1,
+    marginBottom:pixelSizeVertical(10)
     // paddingBottom:pixelSizeVertical(31)
   }
 });

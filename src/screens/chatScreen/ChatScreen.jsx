@@ -51,6 +51,7 @@ const ChatScreen = () => {
             {
               position: 'relative',
               alignSelf: 'flex-end',
+
               marginRight: pixelSizeHorizontal(13),
               marginVertical: pixelSizeVertical(9),
               zIndex: 10,

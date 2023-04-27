@@ -70,23 +70,21 @@ const Feedback = () => {
             </Pressable>
           ))}
         </View>
+          <Text style={[styles.txt2, styles.textColor]}>Notes</Text>
       </View>
 
-      <View style={styles.subContainer2}>
-        <View style={{flex: 1}}>
-          <Text style={[styles.txt2, styles.textColor]}>Notes</Text>
+
           <TextInput
             style={[styles.txtInput, {verticalAlign: 'top'}]}
             placeholderTextColor={'rgba(201, 201, 201, 1)'}
             placeholder="How we can do better?"
-          />
-        </View>
+            />
+         
         <CustomButtom
           text="Submit Feedback"
           btnText={styles.submitText}
           navigate={'UpgradeScreen'}
           btnContainer={styles.submitCont}></CustomButtom>
-      </View>
     </View>
   );
 };
@@ -120,8 +118,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#8A47EB',
     borderWidth: 0,
   },
-  subContainer1: {flex: 1.14},
-  subContainer2: {flex: 1},
+
+ 
  
   container: {
     flex: 1,
@@ -135,6 +133,7 @@ const styles = StyleSheet.create({
     marginBottom: pixelSizeVertical(7),
     fontFamily: 'SF-Pro-Display-Medium',
     lineHeight: fontPixel(10),
+    marginTop:pixelSizeVertical(13)
   },
   textColor: {
     color: 'rgba(0, 0, 0, 1)',
@@ -157,7 +156,6 @@ const styles = StyleSheet.create({
   },
   btnContainer: {
 
-    // paddingHorizontal: pixelSizeHorizontal(6),
     paddingVertical: pixelSizeVertical(1),
     borderRadius: 120,
   },
@@ -189,7 +187,7 @@ const styles = StyleSheet.create({
   txtInput: {
     borderColor: 'black',
     borderWidth: 1,
-    flex: 1,
+    flexGrow: 1,
     marginBottom: pixelSizeVertical(32),
     paddingLeft: pixelSizeHorizontal(7),
     borderRadius: 7,

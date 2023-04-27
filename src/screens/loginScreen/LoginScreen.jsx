@@ -9,14 +9,20 @@ import {
 } from 'react-native';
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import { heightPixel, pixelSizeVertical, widthPixel } from '../../utils/ResponsiveDesign';
-import { useNavigation } from '@react-navigation/native';
+import {
+  heightPixel,
+  pixelSizeVertical,
+  widthPixel,
+} from '../../utils/ResponsiveDesign';
+import {useNavigation} from '@react-navigation/native';
 const {width, height} = Dimensions.get('window');
 const Buttons = ({style, path, children, textStyle}) => {
-    const navigation =useNavigation()
+  const navigation = useNavigation();
   return (
     <>
-      <Pressable style={[style, styles.dBtn]} onPress={()=>navigation.navigate('OnBoardingScreen')}>
+      <Pressable
+        style={[style, styles.dBtn]}
+        onPress={() => navigation.navigate('OnBoardingScreen')}>
         {path && <Image source={path} style={{width: 13, height: 13}}></Image>}
         <Text style={textStyle}>{children}</Text>
       </Pressable>
@@ -41,11 +47,10 @@ const LoginScreen = () => {
           textStyle={[styles.email, styles.font]}>
           Sign up with email
         </Buttons>
-        <View  style={styles.socialSignUp}>
-<View style={styles.line}></View>
-        <Text style={[styles.or, ]}>or use social sign up</Text>
-<View style={styles.line}></View>
-
+        <View style={styles.socialSignUp}>
+          <View style={styles.line}></View>
+          <Text style={[styles.or]}>or use social sign up</Text>
+          <View style={styles.line}></View>
         </View>
 
         {[
@@ -61,13 +66,11 @@ const LoginScreen = () => {
             Continue with {item.name}
           </Buttons>
         ))}
-<View style={[styles.direction,styles.login]}>
-
-        <Text style={styles.acc}>Already have account? </Text>
-        <Text style={styles.logIn}>Log In</Text>
-</View>
+        <View style={[styles.direction, styles.login]}>
+          <Text style={styles.acc}>Already have account? </Text>
+          <Text style={styles.logIn}>Log In</Text>
+        </View>
       </View>
-    
     </View>
   );
 };
@@ -75,15 +78,33 @@ const LoginScreen = () => {
 export default LoginScreen;
 
 const styles = StyleSheet.create({
-    direction:{flexDirection:'row',alignItems:'flex-end'},
-    logIn:{fontSize: width > 320 ? 16 : 10,borderBottomColor:'white',borderBottomWidth:1,color:'white',fontFamily:'SF-Pro-Display-Semibold',lineHeight:width > 320 ? 16 : 10,marginBottom:4},
-    line:{backgroundColor:'#E2E2E2',height:0.8,flex:1,marginBottom:-3},
-    socialSignUp:{flexDirection:'row',alignItems:'center',gap:5, width: width > 320 ? 230 : 180,},
-  acc: {fontSize: width > 320 ? 16 : 10,marginTop: height * 0.035, color: '#FFFFFF',fontFamily:'SF-Pro-Display-Semibold'},
+  direction: {flexDirection: 'row', alignItems: 'flex-end'},
+  logIn: {
+    fontSize: width > 320 ? 16 : 10,
+    borderBottomColor: 'white',
+    borderBottomWidth: 1,
+    color: 'white',
+    fontFamily: 'SF-Pro-Display-Semibold',
+    lineHeight: width > 320 ? 16 : 10,
+    marginBottom: 4,
+  },
+  line: {backgroundColor: '#E2E2E2', height: 0.8, flex: 1, marginBottom: -3},
+  socialSignUp: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+    width: width > 320 ? 230 : 180,
+  },
+  acc: {
+    fontSize: width > 320 ? 16 : 10,
+    marginTop: height * 0.035,
+    color: '#FFFFFF',
+    fontFamily: 'SF-Pro-Display-Semibold',
+  },
   footer: {marginTop: height * 0.05, marginBottom: height * 0.03},
   font: {
     fontSize: width > 320 ? 16 : 10,
-    fontFamily:'SF-Pro-Display-Bold'
+    fontFamily: 'SF-Pro-Display-Bold',
   },
   width: {
     width: width > 320 ? 230 : 180,
@@ -101,7 +122,12 @@ const styles = StyleSheet.create({
     paddingVertical: 11,
     borderRadius: 2,
   },
-  or: {color: '#E2E2E2', marginVertical: height * 0.017,fontSize: width > 320 ? 16 : 10,fontFamily:'SF-Pro-Display-Medium'},
+  or: {
+    color: '#E2E2E2',
+    marginVertical: height * 0.017,
+    fontSize: width > 320 ? 16 : 10,
+    fontFamily: 'SF-Pro-Display-Medium',
+  },
   parent: {
     backgroundColor: '#8A47EB',
     flex: 1,
@@ -125,6 +151,6 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   login: {
-    marginBottom:pixelSizeVertical(28)
+    marginBottom: pixelSizeVertical(28),
   },
 });

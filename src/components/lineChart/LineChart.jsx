@@ -64,12 +64,7 @@ class LineChartScreen extends React.Component {
                 { x: 12, y: 16 },
                 { x: 20, y: 50 },
            
-                // { x: 5, y: 10 },
-                // { x: 6, y: 12 },
-                // { x: 7, y: 14 },
-                // { x: 8, y: 16 },
-                // { x: 9, y: 18 },
-                // { x: 10, y: 20 },
+            
               ],
               label: 'C',
               config: {
@@ -110,7 +105,6 @@ class LineChartScreen extends React.Component {
             
             highlightPerDragEnabled={false}
             
-            // dragDecelerationFrictionCoef={0.99}
             ref="chart"
             keepPositionOnRotation={false}
            
@@ -122,12 +116,10 @@ class LineChartScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    
-  },
+
   chart: {
     flex: 1,
+    
   },
 })
 

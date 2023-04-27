@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
       
 
         borderRadius:1000,
-        width:pixelSizeHorizontal(7),
-        height:pixelSizeHorizontal(7),
+        width:'85%',
+        height:'85%',
     }
 })
