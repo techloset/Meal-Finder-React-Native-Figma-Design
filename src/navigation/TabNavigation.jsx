@@ -1,5 +1,5 @@
 import {StyleSheet, Text, View, Image} from 'react-native';
-import React from 'react';
+import React ,{useState}from 'react';
 import HomeScreen from '../screens/homeScreen/HomeScreen';
 import ChatScreen from '../screens/chatScreen/ChatScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -9,7 +9,9 @@ import {
   pixelSizeVertical,
   widthPixel,
 } from '../utils/ResponsiveDesign';
+import { useRoute } from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
+import { useIsFocused } from '@react-navigation/native';
 const Tab = createBottomTabNavigator();
 const Meal = () => {
   return <></>;
@@ -17,16 +19,33 @@ const Meal = () => {
 const Grocery = () => {
   return <></>;
 };
+const Chat =(prop) => {
+
+  
+  return <>
+  <ChatScreen/>
+  </>;
+};
+const Home = (prop) => {
+  const isFocused = useIsFocused();
+prop?.setState(isFocused&&'home')
+  return <>
+  <HomeScreen/>
+  </>
+};
 const TabNavigation = () => {
+  const [state,setState]=useState('')
+  const route = useRoute();
   return (
     <>
 
-{/* <Vie></Vie> */}
-            {/* gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%) */}
-            <LinearGradient colors={['rgba(255, 255, 255, 0)','#FFFFFF']}  
+
+           {
+state=='home'&&<LinearGradient colors={['rgba(255, 255, 255, 0)','#FFFFFF']}  
             
              style={{ height: 36,position:'absolute',bottom:pixelSizeVertical(45),
            width: '100%', zIndex: 100 }}/>
+           }
       <View style={{ flex: 1 }}>
       <Tab.Navigator
         activeColor=""
@@ -40,17 +59,19 @@ const TabNavigation = () => {
             flexDirection: 'row',
             justifyContent: 'space-between',
             borderTopWidth: 0,
-          
+          elevation:0
           },
 
-          tabBarItemStyle: {flex: 1, justifyContent: 'space-between'},
+          tabBarItemStyle: {flex: 1, justifyContent: 'space-between', elevation:0},
         }}>
         <Tab.Screen
           name="Home"
-          component={HomeScreen}
+         
+          // component={()=><Home setState={setState}/>}
           options={{
             headerShown: false,
             tabBarIcon: ({color, size, focused}) => {
+           
               return (
                 <Image
                 style={styles.icon}
@@ -62,7 +83,9 @@ const TabNavigation = () => {
               return <Text style={styles.label}>Today</Text>;
             },
           }}
-          />
+          >
+            {()=><Home setState={setState}/>}
+          </Tab.Screen>
 
         <Tab.Screen
           name="Meal"
@@ -70,6 +93,8 @@ const TabNavigation = () => {
           options={{
             headerShown: false,
             tabBarIcon: ({color, size, focused}) => {
+           
+
               return (
                 <Image
                 style={styles.icon}
@@ -102,10 +127,12 @@ const TabNavigation = () => {
           />
         <Tab.Screen
           name="Chat"
-          component={ChatScreen}
+       
+          // component={()=><Chat setState={setState}/>}
           options={{
             headerShown: false,
             tabBarIcon: ({color, size, focused}) => {
+
               return (
                 <>
                   {focused && (
@@ -116,7 +143,7 @@ const TabNavigation = () => {
                         marginBottom: -2,
                         borderRadius: 100,
                         width: widthPixel(5.5),
-                        height: heightPixel(5.5),
+                        height: widthPixel(5.5),
                       }}></View>
                   )}
                   <Image
@@ -130,7 +157,9 @@ const TabNavigation = () => {
               return <Text style={styles.label}>{`Chat`}</Text>;
             },
           }}
-          />
+          >
+            {()=><Chat setState={setState}/>}
+          </Tab.Screen>
       </Tab.Navigator>
     </View>
               </>

@@ -99,10 +99,10 @@ const HomeScreen = () => {
             <Text style={[styles.color, styles.txt1]}>Today’s Progress</Text>
             <Text style={[styles.txt2]}>View more</Text>
           </View>
-          <View style={{flex:1}}>
+         
 
           <Chart  />
-          </View>
+       
           <View>
             <View
               style={[
@@ -118,12 +118,15 @@ const HomeScreen = () => {
               <Image
                 source={require('../../assets/images/img.png')}
                 style={styles.img}></Image>
+                <View style={{position:'relative'}} >
+
               <Image
                 source={require('../../assets/images/Tail.png')}
                 style={styles.tailImg}></Image>
               <Text style={[styles.color, styles.picComment]}>
                 🎉 Keep the pace! You’re doing great.
               </Text>
+                </View>
             </View>
           </View>
         </View>
@@ -209,6 +212,7 @@ const styles = StyleSheet.create({
   direction: {flexDirection: 'row', alignItems: 'center'},
   picComment: {
     backgroundColor: 'rgba(243, 243, 243, 1)',
+    position:"relative",
     paddingVertical: pixelSizeVertical(4),
     paddingHorizontal: pixelSizeHorizontal(8),
     borderRadius: pixelSizeHorizontal(11),
@@ -218,15 +222,17 @@ const styles = StyleSheet.create({
   img: {
     width: widthPixel(18),
     height: heightPixel(18),
-    marginTop:-pixelSizeHorizontal(4)
+    marginTop:-pixelSizeHorizontal(4),
+    resizeMode:'contain'
     
   },
   tailImg: {
     width: widthPixel(12),
     height: heightPixel(8),
-    marginRight: -20,
-    marginTop: 15,
-    position: 'relative',
+
+    bottom:-5,
+    left:0,
+    position: 'absolute',
     zIndex: 10,
   },
 });

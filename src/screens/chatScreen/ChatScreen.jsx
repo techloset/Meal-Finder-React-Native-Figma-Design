@@ -8,6 +8,8 @@ import {
   heightPixel,
 } from '../../utils/ResponsiveDesign';
 const ChatScreen = () => {
+ChatScreen.path = 'ChatScreen';
+
   return (
     <View style={{flex: 1, backgroundColor: '#FFFFFF'}}>
       <View style={styles.imgContainer}>
@@ -97,7 +99,6 @@ const ChatScreen = () => {
     </View>
   );
 };
-
 export default ChatScreen;
 
 const styles = StyleSheet.create({
@@ -105,6 +106,7 @@ const styles = StyleSheet.create({
     gap: 10,
     marginHorizontal: pixelSizeHorizontal(9),
     marginTop: pixelSizeVertical(10),
+    marginBottom:pixelSizeVertical(5)
   },
   icon3: {
     width: widthPixel(16),
@@ -171,7 +173,6 @@ const styles = StyleSheet.create({
     elevation: 7,
   },
   response: {
-    // position:'relative',
     backgroundColor: '#007AFF',
     color: 'white',
     paddingVertical: pixelSizeVertical(4),
