@@ -78,28 +78,33 @@ const RecipeScreen = ({route}) => {
             </View>
           </View>
         </View>
+<View style={{flexGrow:1,justifyContent:'flex-start',}}>
 
-        <FlatList
+      <View>
+      <FlatList
           data={Ingredients}
           renderItem={Item}
           keyExtractor={({ingredient}) => ingredient}
           style={[styles.contentSpacing]}
-        />
-        <Text
+          />
+      </View>
+       
+       <Text
           style={[
             styles.color,
             {
+              
               marginLeft: pixelSizeHorizontal(25),
               marginRight: pixelSizeHorizontal(20),
-              marginTop: -pixelSizeVertical(40),
-              fontSize:fontPixel(9)
+              marginTop: pixelSizeVertical(14),
+              fontSize:fontPixel(9),
+              lineHeight:fontPixel(12)
             },
           ]}>
           {`We tie the bacon with twine so that the skin is on the outside and one end and the other practically meet. Heat a little oil in a pressure cooker and mark the bacon all over until golden brown. We remove and discard the oil.`}
         </Text>
-
-        <View style={[styles.btnContainer, {  marginLeft: pixelSizeHorizontal(25),
-              marginRight: pixelSizeHorizontal(20),}]}>
+            </View>
+        <View style={[styles.btnContainer, {  marginLeft:pixelSizeHorizontal(12),marginRight:pixelSizeHorizontal(14)}]}>
           {['Previous', 'Finish cook'].map((item, index) => (
             <CustomButtom
               text={item}
@@ -124,7 +129,6 @@ const styles = StyleSheet.create({
 
   },
   btnContainer: {
-    flex: 1,
     justifyContent: 'space-between',
     alignItems: 'flex-end',
     flexDirection: 'row',
@@ -299,6 +303,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     paddingHorizontal: pixelSizeHorizontal(12),
     paddingVertical: pixelSizeVertical(8),
+    
   },
   shadow: {
     height: heightPixel(24),

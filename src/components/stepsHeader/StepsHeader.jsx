@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     slideBtn: {
         // padding: pixelSizeHorizontal(4),
 
-        height: heightPixel(13),
+        height: widthPixel(13),
         width: widthPixel(13),
         borderRadius: 1000,
         justifyContent: 'center',

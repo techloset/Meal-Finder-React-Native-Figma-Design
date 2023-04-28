@@ -48,7 +48,7 @@ const SettingScreen = () => {
       <View style={styles.progressContainer}>
         <View style={styles.txtContainer}>
           <Text style={[styles.color, styles.txt1]}>Weekly Progress</Text>
-          <View style={styles.direction}>
+          <View style={[styles.direction,{alignItems:'center'}]}>
             <Text style={[styles.color, styles.txt2]}>9:38 AM</Text>
             <Image
               source={require('../../assets/images/direction.png')}
@@ -61,17 +61,17 @@ const SettingScreen = () => {
       <View style={styles.measurementContainer}>
         <View style={[styles.txtContainer, styles.weightContainer]}>
           <Text style={[styles.color, styles.txt1]}>Weight</Text>
-          <View style={styles.direction}>
+          <View style={[styles.direction,{alignItems:'center'}]}>
             <Text style={[styles.color, styles.txt2]}>9:38 AM</Text>
             <Image
               source={require('../../assets/images/direction.png')}
               style={styles.arrowIcon}></Image>
           </View>
         </View>
-        <View style={[styles.direction,{justifyContent:'space-between'}]}>
+        <View style={[styles.direction,{justifyContent:'space-between',borderBottomColor:'rgba(235, 235, 235, 1)',borderBottomWidth:1,paddingBottom:pixelSizeVertical(8)}]}>
             <View style={{marginTop:pixelSizeVertical(7),gap:pixelSizeVertical(3)}}>
                 <Text style={[styles.color,{fontSize:fontPixel(7.7)}]}>
-                    <Text style={{fontSize:fontPixel(15),lineHeight:fontPixel(15), fontFamily: 'SF-Pro-Display-Bold',}}>72.4</Text> Kg
+                    <Text style={{fontSize:fontPixel(15),lineHeight:fontPixel(15), fontFamily: 'SF-Pro-Display-Bold'}}>72.4 </Text> <Text style={{fontSize:fontPixel(7.7),paddingLeft:pixelSizeHorizontal(3.8)}}>Kg</Text>
                 </Text>
                 <Text style={{color:'#3F3B3B',fontSize:fontPixel(6.5)}}>
                 21% Fat Mass
@@ -81,6 +81,7 @@ const SettingScreen = () => {
               <LineChart/>
             </View>
         </View>
+
         <TouchableOpacity style={styles.weightBtn}>
           <Text style={styles.weightText}>Track new weight</Text>
         </TouchableOpacity>
@@ -88,7 +89,7 @@ const SettingScreen = () => {
       <View style={[styles.measurementContainer,styles.caloryContainer]}>
         <View style={[styles.txtContainer, styles.weightContainer]}>
           <Text style={[styles.color, styles.txt1]}>Calories</Text>
-          <View style={styles.direction}>
+          <View style={[styles.direction,{alignItems:'center'}]}>
             <Text style={[styles.color, styles.txt2]}>9:38 AM</Text>
             <Image
               source={require('../../assets/images/direction.png')}
@@ -145,9 +146,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 5,
-    marginTop: pixelSizeVertical(11),
+    marginTop: pixelSizeVertical(4),
   },
-  arrowIcon: {width: widthPixel(7), height: widthPixel(7),resizeMode:'center'},
+  arrowIcon: {width: widthPixel(6.7), height: widthPixel(6.7),marginTop:-1.5,resizeMode:'center'},
   direction: {flexDirection: 'row'},
   container: {
     flex: 1,
@@ -256,7 +257,7 @@ const styles = StyleSheet.create({
     marginTop:pixelSizeVertical(9.5),
     borderRadius:5,
     flex:1,
-    marginBottom:pixelSizeVertical(10)
+    marginBottom:pixelSizeVertical(20)
     // paddingBottom:pixelSizeVertical(31)
   }
 });

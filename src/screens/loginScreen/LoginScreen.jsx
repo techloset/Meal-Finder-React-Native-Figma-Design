@@ -10,7 +10,9 @@ import {
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import {
+  fontPixel,
   heightPixel,
+  pixelSizeHorizontal,
   pixelSizeVertical,
   widthPixel,
 } from '../../utils/ResponsiveDesign';
@@ -18,13 +20,17 @@ import {useNavigation} from '@react-navigation/native';
 const {width, height} = Dimensions.get('window');
 const Buttons = ({style, path, children, textStyle}) => {
   const navigation = useNavigation();
+ 
   return (
     <>
       <Pressable
-        style={[style, styles.dBtn]}
+        style={[style, styles.dBtn,]}
         onPress={() => navigation.navigate('OnBoardingScreen')}>
-        {path && <Image source={path} style={{width: 13, height: 13}}></Image>}
-        <Text style={textStyle}>{children}</Text>
+        <View style={styles.continueContainer}>
+
+        {path && <Image source={path} style={{width: widthPixel(13), height: widthPixel(13),}}></Image>}
+        <Text style={[textStyle,{marginRight:children.at(-1)=='Google'?pixelSizeHorizontal(11): children.at(-1)=='Apple'?pixelSizeHorizontal(13.4):0}]}>{children}</Text>
+        </View>
       </Pressable>
     </>
   );
@@ -43,13 +49,13 @@ const LoginScreen = () => {
       </ImageBackground>
       <View style={styles.btns}>
         <Buttons
-          style={[styles.btn1, styles.width]}
+          style={[styles.btn1, styles.width,styles.center]}
           textStyle={[styles.email, styles.font]}>
           Sign up with email
         </Buttons>
         <View style={styles.socialSignUp}>
           <View style={styles.line}></View>
-          <Text style={[styles.or]}>or use social sign up</Text>
+          <Text style={[styles.or,styles.signUpText]}>or use social sign up</Text>
           <View style={styles.line}></View>
         </View>
 
@@ -61,9 +67,9 @@ const LoginScreen = () => {
           <Buttons
             path={item.path}
             key={item.name}
-            style={[styles.mp, , styles.width]}
+            style={[styles.mp ]}
             textStyle={[styles.color, styles.font]}>
-            Continue with {item.name}
+             Continue with {item.name}
           </Buttons>
         ))}
         <View style={[styles.direction, styles.login]}>
@@ -78,59 +84,64 @@ const LoginScreen = () => {
 export default LoginScreen;
 
 const styles = StyleSheet.create({
+  continueContainer:{flexDirection:'row',gap:pixelSizeHorizontal(8.06),alignItems:'center',justifyContent:'center'},
+  center:{alignItems:'center'},
+  signUpText:{fontSize:fontPixel(9.21), fontFamily: 'SF-Pro-Display-Medium',},
   direction: {flexDirection: 'row', alignItems: 'flex-end'},
   logIn: {
-    fontSize: width > 320 ? 16 : 10,
+   
     borderBottomColor: 'white',
     borderBottomWidth: 1,
     color: 'white',
     fontFamily: 'SF-Pro-Display-Semibold',
-    lineHeight: width > 320 ? 16 : 10,
-    marginBottom: 4,
+    fontSize:fontPixel(10.94),
+    lineHeight:fontPixel(10.94),
+ 
   },
-  line: {backgroundColor: '#E2E2E2', height: 0.8, flex: 1, marginBottom: -3},
+  line: {backgroundColor: '#E2E2E2', height: 0.8, flex: 1},
   socialSignUp: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 5,
-    width: width > 320 ? 230 : 180,
+    gap: pixelSizeVertical(4.06),
   },
   acc: {
-    fontSize: width > 320 ? 16 : 10,
+   
     marginTop: height * 0.035,
     color: '#FFFFFF',
+    fontSize:fontPixel(10.94),
+    lineHeight:fontPixel(10.94),
     fontFamily: 'SF-Pro-Display-Semibold',
   },
-  footer: {marginTop: height * 0.05, marginBottom: height * 0.03},
   font: {
-    fontSize: width > 320 ? 16 : 10,
+    // alignSelf:'center',
+  fontSize:fontPixel(10.36), 
+  // lineHeight:fontPixel(10.36), 
     fontFamily: 'SF-Pro-Display-Bold',
   },
-  width: {
-    width: width > 320 ? 230 : 180,
-  },
+  
   mp: {
     backgroundColor: '#FFFFFF',
-    flexDirection: 'row',
-    paddingLeft: 21,
-    alignItems: 'center',
+  height:heightPixel(27.6),
     gap: 8,
-    marginBottom: height * 0.017,
+    marginBottom: pixelSizeVertical(8.06),
+    // paddingLeft:pixelSizeHorizontal(21)
+
   },
   color: {color: '#000000'},
   dBtn: {
-    paddingVertical: 11,
-    borderRadius: 2,
+    justifyContent:'center',
+    borderRadius: pixelSizeHorizontal(3),
   },
   or: {
     color: '#E2E2E2',
-    marginVertical: height * 0.017,
-    fontSize: width > 320 ? 16 : 10,
-    fontFamily: 'SF-Pro-Display-Medium',
+    marginTop:pixelSizeVertical(7),
+    marginBottom:pixelSizeVertical(9.6),
+   
   },
   parent: {
     backgroundColor: '#8A47EB',
     flex: 1,
+  
   },
   img: {
     width: '100%',
@@ -140,17 +151,20 @@ const styles = StyleSheet.create({
   },
   btns: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'flex-end',
+    paddingLeft:pixelSizeHorizontal(21),
+    paddingRight:pixelSizeHorizontal(19),
   },
   btn1: {
     backgroundColor: '#060606',
-    paddingHorizontal: 44,
+    height:heightPixel(33)
+  
   },
   email: {
     color: '#FFFFFF',
   },
   login: {
     marginBottom: pixelSizeVertical(28),
+    justifyContent:'center',
   },
 });

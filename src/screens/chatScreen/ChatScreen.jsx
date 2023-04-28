@@ -8,7 +8,7 @@ import {
   heightPixel,
 } from '../../utils/ResponsiveDesign';
 const ChatScreen = () => {
-ChatScreen.path = 'ChatScreen';
+  ChatScreen.path = 'ChatScreen';
 
   return (
     <View style={{flex: 1, backgroundColor: '#FFFFFF'}}>
@@ -82,17 +82,26 @@ ChatScreen.path = 'ChatScreen';
               flex: 1,
               justifyContent: 'space-between',
               alignItems: 'center',
-              padding: 3,
               borderRadius: 1000,
+              height: heightPixel(19.5),
             }}>
             <TextInput
               placeholder="Message..."
               placeholderTextColor={'rgba(60, 60, 67, 0.3)'}
-              style={styles.color}
+              style={[
+                styles.color,
+                {
+                  height: pixelSizeVertical(20),
+                  paddingBottom: pixelSizeVertical(2), // adjust this value to fit the placeholder
+paddingLeft: pixelSizeHorizontal(8), // adjust this value to fit the placeholder
+                },
+              ]}
             />
+            <View style={{}}>
             <Image
               source={require('../../assets/images/d.png')}
               style={styles.icon3}></Image>
+            </View>
           </View>
         </View>
       </View>
@@ -106,12 +115,13 @@ const styles = StyleSheet.create({
     gap: 10,
     marginHorizontal: pixelSizeHorizontal(9),
     marginTop: pixelSizeVertical(10),
-    marginBottom:pixelSizeVertical(5)
+    marginBottom: pixelSizeVertical(5),
   },
   icon3: {
-    width: widthPixel(16),
-    height: heightPixel(16),
-    resizeMode: 'contain',
+    width: widthPixel(15.8),
+    height: widthPixel(15.8),
+marginRight:pixelSizeHorizontal(2),
+    resizeMode: 'center',
   },
   icon2: {
     width: widthPixel(20),
@@ -130,6 +140,7 @@ const styles = StyleSheet.create({
     marginHorizontal: pixelSizeHorizontal(9),
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems:'center'
   },
   heading: {
     color: 'rgba(200, 200, 204, 1)',

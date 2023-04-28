@@ -1,6 +1,6 @@
-import { StyleSheet, Text, Touchable, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, Touchable, TouchableOpacity, View ,Dimensions} from 'react-native'
 import { pixelSizeHorizontal } from '../../utils/ResponsiveDesign'
-
+const {width}=Dimensions.get('window')
 const RadioBtn = ({num,setRadio,radio}) => {
  
   return (
@@ -20,8 +20,8 @@ const styles = StyleSheet.create({
         borderColor:'black',
         borderWidth:1,
    
-        width:pixelSizeHorizontal(10),
-        height:pixelSizeHorizontal(10),
+        width:width>320?16:10,
+        height:width>320?16:10,
 
         justifyContent:'center',
         alignItems:'center',
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
       
 
         borderRadius:1000,
-        width:'85%',
-        height:'85%',
+        width:"70%",
+        height:'70%',
     }
 })

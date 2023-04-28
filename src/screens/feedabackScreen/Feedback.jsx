@@ -29,15 +29,15 @@ const Feedback = () => {
   const [state, setState] = useState(data.length - 1);
   return (
     <View style={styles.container}>
-      <FeedbackHeader navigate="Notification" />
-      <View style={styles.subContainer1}>
+      <FeedbackHeader navigate="Notification" color='rgba(31, 115, 241, 1)' />
+      <View >
         <View style={styles.textContainer}>
           <Text
             style={[
               styles.txt1,
               styles.textColor,
             ]}>{`How was your overall\nexperience?`}</Text>
-          <Text style={[styles.txt2, styles.textColor]}>
+          <Text style={[styles.txt2, styles.textColor,{paddingBottom:pixelSizeVertical(13)}]}>
             It will help us to serve you better.
           </Text>
           <Image
@@ -127,13 +127,12 @@ const styles = StyleSheet.create({
     paddingLeft: pixelSizeHorizontal(15),
     paddingRight: pixelSizeHorizontal(11),
   },
-  txt1: {fontSize: fontPixel(14.5), fontFamily: 'SF-Pro-Display-Semibold'},
+  txt1: {fontSize: fontPixel(14.8), fontFamily: 'SF-Pro-Display-Semibold'},
   txt2: {
-    fontSize: fontPixel(10),
+    fontSize: fontPixel(8.63),
     marginBottom: pixelSizeVertical(7),
     fontFamily: 'SF-Pro-Display-Medium',
     lineHeight: fontPixel(10),
-    marginTop:pixelSizeVertical(13)
   },
   textColor: {
     color: 'rgba(0, 0, 0, 1)',
@@ -141,11 +140,13 @@ const styles = StyleSheet.create({
   textContainer: {
     marginTop: pixelSizeVertical(5),
     gap: pixelSizeVertical(11),
+    marginBottom:pixelSizeVertical(5)
   },
   emojis: {
     width: pixelSizeHorizontal(132),
     height: pixelSizeVertical(30),
     resizeMode: 'contain',
+    marginTop:-pixelSizeVertical(20),
     marginBottom: pixelSizeVertical(4),
   },
   wrong: {
@@ -168,6 +169,8 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     gap: pixelSizeHorizontal(7),
     marginTop: pixelSizeVertical(11),
+    marginBottom: pixelSizeVertical(13),
+
   },
   submitCont: {
     backgroundColor: 'rgba(138, 71, 235, 1)',

@@ -33,13 +33,14 @@ const styles = StyleSheet.create({
     heading: {
         fontSize: fontPixel(16),
 marginTop:pixelSizeVertical(19),
-lineHeight:fontPixel(20),
+lineHeight:fontPixel(19.36),
 marginBottom:pixelSizeVertical(12),
 color:'black',
 fontFamily:'SF-Pro-Display-Semibold'
     },
     subSection: {
-        fontSize: fontPixel(9)
+        fontSize: fontPixel(9),
+        lineHeight:fontPixel(11.3)
 
     },
     color: {

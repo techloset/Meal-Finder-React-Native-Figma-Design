@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     paddingTop: pixelSizeVertical(1.46),
   },
   Fish: {
-    width: pixelSizeHorizontal(57),
+    width: pixelSizeHorizontal(57.7),
 
     paddingBottom: pixelSizeVertical(3),
     paddingTop: pixelSizeVertical(1.46),

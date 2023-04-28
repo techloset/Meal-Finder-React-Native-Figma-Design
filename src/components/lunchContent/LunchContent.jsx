@@ -31,11 +31,11 @@ const LunchContent = () => {
           marginBottom: pixelSizeVertical(20),
         }}>
         <Pagination
-          dotsLength={3}
+          dotsLength={4}
           activeDotIndex={0}
           dotStyle={{
-            width: widthPixel(19),
-            height: heightPixel(4),
+            width: widthPixel(19.6),
+            height: heightPixel(3.35),
             borderRadius: 5000,
 
             marginHorizontal: -3,
@@ -43,8 +43,8 @@ const LunchContent = () => {
           }}
           inactiveDotStyle={{
             backgroundColor: '#DBDBDB',
-            width: widthPixel(5),
-            height: heightPixel(5),
+            width: widthPixel(3.35),
+            height: widthPixel(3.35),
           }}
           inactiveDotOpacity={0.4}
           inactiveDotScale={1}
@@ -77,8 +77,8 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     fontFamily: 'SF-Pro-Display-Bold',
   },
-  heading: {fontSize: fontPixel(14), fontFamily: 'SF-Pro-Display-Semibold'},
-  text: {fontSize: fontPixel(10)},
+  heading: {fontSize: fontPixel(14.8), fontFamily: 'SF-Pro-Display-Semibold'},
+  text: {fontSize: fontPixel(10),lineHeight:fontPixel(14)},
   parent: {
     flex: 1,
     justifyContent: 'space-between',

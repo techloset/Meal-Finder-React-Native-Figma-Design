@@ -9,7 +9,7 @@ import {
 } from '../../utils/ResponsiveDesign.jsx';
 import {useNavigation} from '@react-navigation/native';
 
-const FeedbackHeader = ({navigate,navigateThroughSkip}) => {
+const FeedbackHeader = ({navigate,navigateThroughSkip,color='rgba(96, 15, 212, 1)'}) => {
   console.log(navigateThroughSkip)
   const navigation = useNavigation();
   return (
@@ -21,7 +21,7 @@ const FeedbackHeader = ({navigate,navigateThroughSkip}) => {
           source={require('../../assets/images/arrow.png')}
           style={styles.img}></Image>
       </TouchableOpacity>
-      <Text  style={styles.text}>Skip</Text>
+      <Text  style={[styles.text,{color}]}>Skip</Text>
     </View>
   );
 };
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    color: '#600FD4',
+  
     fontSize: fontPixel(10),
     fontFamily:'SF-Pro-Display-Bold'
   },

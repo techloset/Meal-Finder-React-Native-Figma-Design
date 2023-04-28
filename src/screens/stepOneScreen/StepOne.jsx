@@ -14,7 +14,7 @@ const {width,height}=Dimensions.get('window')
 const StepOne = () => {
     const data={
         heading:`Any ingredient\nallergies?`,
-        content: `To offer you the best tailored diet\nexperience we need to know more\ninformation about you`
+        content: `To offer you the best tailored diet\nexperience we need to know more\ninformation about you.`
     }
     const btnData=[
         'Gluten',

@@ -103,16 +103,16 @@ const HomeScreen = () => {
 
           <Chart  />
        
-          <View>
+       
             <View
               style={[
                 styles.direction,
                 {
-                  marginTop: pixelSizeVertical(16),
+                  marginTop: pixelSizeVertical(11),
                   position: 'relative',
                   zIndex: 10,
                   gap: 5,
-                  
+                  paddingTop:pixelSizeVertical(13),
                 },
               ]}>
               <Image
@@ -128,15 +128,16 @@ const HomeScreen = () => {
               </Text>
                 </View>
             </View>
-          </View>
+         
         </View>
       )}
 
       <View
-        style={{gap: pixelSizeVertical(11), marginTop: pixelSizeVertical(13)}}>
+        style={{ marginTop: pixelSizeVertical(13),gap:pixelSizeVertical(11),}}>
         {imgsData.map(({path}, index) => (
           <Pressable
             key={index}
+            style={{height: heightPixel(103),shadowColor: "#000000",elevation:4,shadowOpacity:  0.5,shadowRadius: pixelSizeHorizontal(5),borderRadius:pixelSizeHorizontal(5)}}
             onPress={() =>
               navigation.navigate('RecipeScreen', {
                 path,
@@ -144,7 +145,7 @@ const HomeScreen = () => {
             }>
             <Image
               source={path}
-              style={{width: '100%', height: heightPixel(103)}}
+              style={{width: '100%',height:'100%' ,borderRadius:pixelSizeHorizontal(5)}}
             />
           </Pressable>
         ))}
@@ -178,6 +179,7 @@ const styles = StyleSheet.create({
     marginTop: pixelSizeHorizontal(7),
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems:'center'
   },
   img1: {
     width: pixelSizeHorizontal(21),
@@ -191,7 +193,7 @@ const styles = StyleSheet.create({
   },
   progressContainer: {
     borderWidth: 1,
-    padding: 10,
+    padding: pixelSizeHorizontal(10.4),
     marginTop: pixelSizeVertical(11),
     borderRadius: 11,
   },
@@ -221,9 +223,9 @@ const styles = StyleSheet.create({
   },
   img: {
     width: widthPixel(18),
-    height: heightPixel(18),
+    height: widthPixel(18),
+    borderRadius:100,
     marginTop:-pixelSizeHorizontal(4),
-    resizeMode:'contain'
     
   },
   tailImg: {

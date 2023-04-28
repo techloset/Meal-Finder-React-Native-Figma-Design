@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'rgba(255, 255, 255, 1)',
 
-    marginTop: -pixelSizeVertical(60),
+    marginTop: -pixelSizeVertical(56),
     zIndex: 10,
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
   },
   txt2: {
     fontSize: fontPixel(9.5),
-    lineHeight: fontPixel(9.5),
+    lineHeight: fontPixel(13.3),
     fontFamily: 'SF-Pro-Display-Medium',
   },
   textContainer: {
@@ -163,11 +163,13 @@ const styles = StyleSheet.create({
     fontSize: fontPixel(9),
     lineHeight: fontPixel(9),
     fontFamily: 'SF-Pro-Display-Medium',
+    
   },
   CondiText: {
     fontSize: fontPixel(9),
     lineHeight: fontPixel(9),
     fontFamily: 'SF-Pro-Display-Bold',
     marginBottom: pixelSizeVertical(20),
+    marginTop:2
   },
 });

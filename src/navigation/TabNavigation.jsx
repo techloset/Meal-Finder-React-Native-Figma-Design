@@ -6,6 +6,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {
   fontPixel,
   heightPixel,
+  pixelSizeHorizontal,
   pixelSizeVertical,
   widthPixel,
 } from '../utils/ResponsiveDesign';
@@ -43,7 +44,7 @@ const TabNavigation = () => {
            {
 state=='home'&&<LinearGradient colors={['rgba(255, 255, 255, 0)','#FFFFFF']}  
             
-             style={{ height: 36,position:'absolute',bottom:pixelSizeVertical(45),
+             style={{ height: pixelSizeVertical(36),position:'absolute',bottom:pixelSizeVertical(45),
            width: '100%', zIndex: 100 }}/>
            }
       <View style={{ flex: 1 }}>
@@ -57,19 +58,22 @@ state=='home'&&<LinearGradient colors={['rgba(255, 255, 255, 0)','#FFFFFF']}
             paddingTop: pixelSizeVertical(7),
             height: pixelSizeVertical(45),
             flexDirection: 'row',
-            justifyContent: 'space-between',
+            justifyContent:'space-between',
+            
+            
             borderTopWidth: 0,
           elevation:0
           },
 
-          tabBarItemStyle: {flex: 1, justifyContent: 'space-between', elevation:0},
+          // tabBarItemStyle: {flex: 1, justifyContent: 'space-evenly',padding:0,margin:0, elevation:0},
         }}>
         <Tab.Screen
           name="Home"
-         
-          // component={()=><Home setState={setState}/>}
+         style={styles.BottomTabBarItem}
+       
           options={{
             headerShown: false,
+          
             tabBarIcon: ({color, size, focused}) => {
            
               return (
@@ -115,20 +119,19 @@ state=='home'&&<LinearGradient colors={['rgba(255, 255, 255, 0)','#FFFFFF']}
             tabBarIcon: ({color, size, focused}) => {
               return (
                 <Image
-                  style={styles.icon}
+                  style={[styles.icon,{marginRight:-pixelSizeHorizontal(20)}]}
                   source={require('../assets/images/grocery.png')}
                   />
                 );
             },
             tabBarLabel: () => {
-              return <Text style={styles.label}>Grocery List</Text>;
+              return <Text style={[styles.label,{marginRight:-pixelSizeHorizontal(20)}]}>Grocery List</Text>;
             },
           }}
           />
         <Tab.Screen
           name="Chat"
        
-          // component={()=><Chat setState={setState}/>}
           options={{
             headerShown: false,
             tabBarIcon: ({color, size, focused}) => {
@@ -139,7 +142,7 @@ state=='home'&&<LinearGradient colors={['rgba(255, 255, 255, 0)','#FFFFFF']}
                     <View
                       style={{
                         backgroundColor: 'rgba(255, 53, 56, 1)',
-                        marginLeft: -30,
+                        marginRight: pixelSizeVertical(8),
                         marginBottom: -2,
                         borderRadius: 100,
                         width: widthPixel(5.5),
@@ -147,14 +150,14 @@ state=='home'&&<LinearGradient colors={['rgba(255, 255, 255, 0)','#FFFFFF']}
                       }}></View>
                   )}
                   <Image
-                    style={styles.icon}
+                    style={[styles.icon,{marginRight:-pixelSizeHorizontal(15)}]}
                     source={require('../assets/images/chat.png')}
                   />
                 </>
               );
             },
             tabBarLabel: () => {
-              return <Text style={styles.label}>{`Chat`}</Text>;
+              return <Text style={[styles.label,{marginRight:-pixelSizeHorizontal(16)}]}>{`Chat`}</Text>;
             },
           }}
           >
@@ -174,10 +177,15 @@ const styles = StyleSheet.create({
     height: heightPixel(16),
     resizeMode: 'contain',
     marginBottom: pixelSizeVertical(2),
+    
   },
   label: {
     fontSize: fontPixel(9),
     fontFamily: 'SF-Pro-Display-Medium',
     color: 'black',
   },
+  BottomTabBarItem:{
+    width:10  ,
+    backgroundColor:'green'
+  }
 });

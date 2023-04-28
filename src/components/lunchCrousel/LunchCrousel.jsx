@@ -34,7 +34,9 @@ const SnapCarousel = () => {
                     : pixelSizeHorizontal(12),
                 width: width * 0.7,
                 height: height * 0.26,
-                borderRadius: index != 0 ? 10 : 0,
+                borderRadius: index != 0 ? pixelSizeHorizontal(9.5 ): 0,
+                borderTopRightRadius:pixelSizeHorizontal(9.5 ),
+                borderBottomRightRadius:pixelSizeHorizontal(9.5 ),
               }}
             />
           )}></FlatList>

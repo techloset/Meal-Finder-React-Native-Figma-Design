@@ -19,13 +19,14 @@ const Chart = ({height}) => {
         {
           justifyContent: 'space-between',
           gap: 10,
+          alignItems: 'center',
           marginTop: pixelSizeVertical(11),
         },
       ]}>
       <View>
         <Text style={styles.caloriesText}>Calories</Text>
 
-        <View style={styles.direction}>
+        <View style={[styles.direction, {gap: pixelSizeHorizontal(1.5)}]}>
           <Image
             source={require('../../assets/images/fire.png')}
             style={styles.fireImg}></Image>
@@ -34,8 +35,8 @@ const Chart = ({height}) => {
       </View>
       <View style={{flexDirection: 'row', gap: pixelSizeHorizontal(5.5)}}>
         <AnimatedCircularProgress
-          size={heightPixel(40)}
-          width={heightPixel(6)}
+          size={heightPixel(41)}
+          width={heightPixel(5.5)}
           fill={35}
           tintColor="rgba(254, 198, 53, 1)"
           style={{borderRadius: 1000}}
@@ -54,7 +55,7 @@ const Chart = ({height}) => {
         </AnimatedCircularProgress>
         <AnimatedCircularProgress
           size={heightPixel(40)}
-          width={heightPixel(6)}
+          width={heightPixel(5.5)}
           fill={65}
           tintColor="rgba(53, 133, 254, 1)"
           borderRadius={1000}
@@ -72,7 +73,7 @@ const Chart = ({height}) => {
         </AnimatedCircularProgress>
         <AnimatedCircularProgress
           size={heightPixel(40)}
-          width={heightPixel(6)}
+          width={heightPixel(5.5)}
           fill={85}
           tintColor="rgba(120, 118, 245, 1)"
           borderRadius={1000}
@@ -96,13 +97,14 @@ const Chart = ({height}) => {
 export default Chart;
 
 const styles = StyleSheet.create({
-  innerContent: {justifyContent: 'center', alignItems: 'center'},
+  innerContent: {justifyContent: 'flex-end', marginTop:pixelSizeVertical(3),alignItems: 'center', padding: 1},
   categoryTxt: {
     fontSize: fontPixel(8.4),
     color: 'rgba(109, 109, 109, 1)',
   },
   percentageTxt: {
     fontSize: fontPixel(8.4),
+    marginLeft: 4,
     lineHeight: fontPixel(8.4),
     color: 'black',
     fontFamily: 'SF-Pro-Display-Semibold',
