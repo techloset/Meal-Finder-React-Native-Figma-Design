@@ -1,5 +1,5 @@
 import { Pressable, StyleSheet, Text, View,Dimensions } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import {
     widthPixel,
     heightPixel,
@@ -13,6 +13,7 @@ import CustomButtom from '../../components/button/CustomButton'
 import { useNavigation } from '@react-navigation/native'
 const {width,height}=Dimensions.get('window')
 const StepOne = () => {
+    const [active,setActive]=useState(3)
     const navigation=useNavigation()
     const data={
         heading:`Do you follow any of\nthese diets?`,
@@ -38,9 +39,10 @@ const StepOne = () => {
                     1, 2, 3, 4
                 ].map((item, index) => <Pressable
                     key={index}
-                    style={[styles.slideBtn,
-                    styles[`btn${item}`]]}>
-                    <Text style={[styles.slideBtnText, { color:index == 3?'#FFFFFF' :'black', }]} >{item}</Text>
+                    style={[styles.slideBtn,active==index?styles.active:styles.nonActive]}
+            onPress={()=>setActive(index)}>
+                        
+                    <Text style={[styles.slideBtnText, {color: index == active ? '#FFFFFF' : 'black'},]} >{item}</Text>
                     </Pressable>)
             }
         </View> 
@@ -68,6 +70,14 @@ const StepOne = () => {
 
 export default StepOne
 const styles = StyleSheet.create({
+    nonActive: {
+        borderColor: 'black',
+        borderWidth: 1,
+      },
+      active: {
+        backgroundColor: '#8A47EB',
+        color: '#FFFFFF',
+      },
     btnsContainer: {
           
         flexDirection: "row",
@@ -77,25 +87,7 @@ const styles = StyleSheet.create({
         paddingTop: pixelSizeVertical(21)
 
     },
-    btn1: {
-        borderColor: 'black',
-        borderWidth: 1,
-
-
-    },
-    btn2: {
-        color: '#FFFFFF',
-        borderColor: 'black',
-        borderWidth: 1,
-    },
-    btn3: {
-        borderColor: 'black',
-        borderWidth: 1,
-    },
-    btn4: {
-        backgroundColor: '#8A47EB',
-
-    },
+   
     slideBtn: {
 
         height: heightPixel(13),

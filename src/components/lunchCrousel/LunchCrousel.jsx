@@ -5,25 +5,43 @@ import {
   StyleSheet,
   Dimensions,
   Image,
-  FlatList,
+  FlatList,Button
 } from 'react-native';
+import { useCallback } from 'react';
 import Carousel from 'react-native-snap-carousel';
+import { useRef } from 'react';
 import {pixelSizeHorizontal} from '../../utils/ResponsiveDesign';
 const {width, height} = Dimensions.get('window');
-const SnapCarousel = () => {
+const SnapCarousel = ({ state,setState}) => {
+  const flatListRef = useRef(null)
   const carouselItems = [
     {title: require('../../assets/images/1.png')},
+    {title: require('../../assets/images/alternate.png')},
     {title: require('../../assets/images/1.png')},
-    {title: require('../../assets/images/1.png')},
-    {title: require('../../assets/images/1.png')},
+    {title: require('../../assets/images/alternate.png')},
   ];
+  const onScrollEndDrag = useCallback(({ nativeEvent }) => {
+    const slideSize = width * 0.7 + pixelSizeHorizontal(12);
+    const offset = nativeEvent.contentOffset.x;
+    const index = Math.round(offset / slideSize);
+    setState(index);
+  }, []);
+  
+  
+  
+  if (flatListRef.current) {
+
+    flatListRef.current.scrollToIndex({index: state}) // Scroll to day 10
+}
   return (
     <>
       <View>
         <FlatList
+         ref={flatListRef} // add ref
           horizontal={true}
           showsHorizontalScrollIndicator={false}
           data={carouselItems}
+          onScrollEndDrag={onScrollEndDrag}
           renderItem={({item, index}) => (
             <Image
               source={item.title}
@@ -40,7 +58,9 @@ const SnapCarousel = () => {
               }}
             />
           )}></FlatList>
+           
       </View>
+      
     </>
   );
 };

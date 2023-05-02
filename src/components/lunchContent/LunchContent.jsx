@@ -1,4 +1,11 @@
-import {StyleSheet, Text, View, Dimensions, Pressable} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+  Pressable,
+  TouchableOpacity,
+} from 'react-native';
 import React from 'react';
 const {width, height} = Dimensions.get('window');
 import Carousel, {Pagination} from 'react-native-snap-carousel';
@@ -10,7 +17,7 @@ import {
   pixelSizeVertical,
   pixelSizeHorizontal,
 } from '../../utils/ResponsiveDesign.jsx';
-const LunchContent = () => {
+const LunchContent = ({state, setState}) => {
   return (
     <View style={styles.parent}>
       <View style={{gap: 17}}>
@@ -30,25 +37,23 @@ const LunchContent = () => {
           marginLeft: width * 0.1,
           marginBottom: pixelSizeVertical(20),
         }}>
-        <Pagination
-          dotsLength={4}
-          activeDotIndex={0}
-          dotStyle={{
-            width: widthPixel(19.6),
-            height: heightPixel(3.35),
-            borderRadius: 5000,
+       
+        <View style={{flexDirection: 'row', gap: pixelSizeHorizontal(3.35),marginLeft:pixelSizeHorizontal(5)}}>
+          {
+            Array(4).fill(0).map((item,index)=>{
+             return <TouchableOpacity
+              style={{
+                width: widthPixel(state == index? 19.6 : 3.35),
+                borderRadius: 5000,
+                height: widthPixel(3.35),
+                backgroundColor: state == index ? '#8A47EB' : 'rgba(219, 219, 219, 0.4)',
+              }}
+              onPress={() => setState(index)}></TouchableOpacity>
+            })
+          }
+       
+        </View>
 
-            marginHorizontal: -3,
-            backgroundColor: '#8A47EB',
-          }}
-          inactiveDotStyle={{
-            backgroundColor: '#DBDBDB',
-            width: widthPixel(3.35),
-            height: widthPixel(3.35),
-          }}
-          inactiveDotOpacity={0.4}
-          inactiveDotScale={1}
-        />
         <CustomButtom
           btnContainer={styles.btnContainer}
           btnText={styles.btnText}
@@ -78,7 +83,7 @@ const styles = StyleSheet.create({
     fontFamily: 'SF-Pro-Display-Bold',
   },
   heading: {fontSize: fontPixel(14.8), fontFamily: 'SF-Pro-Display-Semibold'},
-  text: {fontSize: fontPixel(10),lineHeight:fontPixel(14)},
+  text: {fontSize: fontPixel(10), lineHeight: fontPixel(14)},
   parent: {
     flex: 1,
     justifyContent: 'space-between',

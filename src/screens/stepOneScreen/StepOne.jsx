@@ -1,5 +1,5 @@
 import { Pressable, StyleSheet, Text, View,Dimensions } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import {
     widthPixel,
     heightPixel,
@@ -16,6 +16,7 @@ const StepOne = () => {
         heading:`Any ingredient\nallergies?`,
         content: `To offer you the best tailored diet\nexperience we need to know more\ninformation about you.`
     }
+    const [active,setActive]=useState(1)
     const btnData=[
         'Gluten',
         'Diary',
@@ -30,7 +31,7 @@ const StepOne = () => {
         <View style={styles.Container}>
             <View style={styles.contentContainer}>
 
-                <StepsHeader  ></StepsHeader>
+                <StepsHeader  active={active} setActive={setActive} ></StepsHeader>
                 <StepOneContent activeOne={btnData.length-1} btnData={btnData} data={data}></StepOneContent>
             </View>
             <View style={styles.btnContainer}>

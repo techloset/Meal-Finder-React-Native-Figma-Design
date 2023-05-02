@@ -108,13 +108,13 @@ const styles = StyleSheet.create({
    
     marginTop: height * 0.035,
     color: '#FFFFFF',
-    fontSize:fontPixel(10.94),
-    lineHeight:fontPixel(10.94),
+    fontSize:fontPixel(10),
+    lineHeight:fontPixel(10),
     fontFamily: 'SF-Pro-Display-Semibold',
   },
   font: {
     // alignSelf:'center',
-  fontSize:fontPixel(10.36), 
+  fontSize:fontPixel(10.96), 
   // lineHeight:fontPixel(10.36), 
     fontFamily: 'SF-Pro-Display-Bold',
   },

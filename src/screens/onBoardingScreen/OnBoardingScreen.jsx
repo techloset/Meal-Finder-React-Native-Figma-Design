@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View,Dimensions } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import LunchCrousel from '../../components/lunchCrousel/LunchCrousel'
 import LunchContent from '../../components/lunchContent/LunchContent'
 import Carousel, {Pagination} from 'react-native-snap-carousel';
@@ -13,12 +13,13 @@ import {
 
 const {width,height}=Dimensions.get('window')
 const OnBoardingScreen = () => {
+  const [state,setState]=useState(0)
   return (
   <View style={styles.itemContainer}>
-  <LunchCrousel></LunchCrousel>
+  <LunchCrousel state={state} setState={setState}></LunchCrousel>
 
 
-  <LunchContent></LunchContent>
+  <LunchContent  state={state} setState={setState}></LunchContent>
    
   
   </View>

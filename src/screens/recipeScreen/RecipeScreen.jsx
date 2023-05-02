@@ -212,6 +212,7 @@ width:'100%'
   ramenTxt: {
     fontSize: fontPixel(14),
     lineHeight: fontPixel(14),
+    marginBottom:pixelSizeVertical(4),
     textAlign: 'center',
     fontFamily:'SF-Pro-Display-Semibold'
   },

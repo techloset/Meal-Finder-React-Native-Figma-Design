@@ -38,11 +38,11 @@ const SettingScreen = () => {
             style={styles.headerBtnChild1}>
             <Text style={[ styles.txt]}>Journal</Text>
           </TouchableOpacity>
-          <View style={styles.headerBtnChild2}>
+          <TouchableOpacity style={styles.headerBtnChild2}>
             <Text style={[styles.headerBtnChildTxt2, styles.txt]}>
               Favorites
             </Text>
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
       <View style={styles.progressContainer}>
