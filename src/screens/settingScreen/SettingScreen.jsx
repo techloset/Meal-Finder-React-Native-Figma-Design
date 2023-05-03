@@ -117,7 +117,7 @@ const SettingScreen = () => {
 
             <BarChart></BarChart>
 
-           <View style={{borderBottomWidth:1,borderBottomColor:'#E9E9E9',width:'100%',height:1,marginTop:-pixelSizeVertical(10),marginHorizontal:5}}>
+           <View style={{borderBottomWidth:1,borderBottomColor:'#E9E9E9',width:'100%',height:1,marginTop:-pixelSizeVertical(9.5),marginHorizontal:5}}>
             
            </View>
            </View>
@@ -257,7 +257,7 @@ const styles = StyleSheet.create({
     marginTop:pixelSizeVertical(9.5),
     borderRadius:5,
     flex:1,
-    marginBottom:pixelSizeVertical(20)
+    marginBottom:pixelSizeVertical(10)
     // paddingBottom:pixelSizeVertical(31)
   }
 });
